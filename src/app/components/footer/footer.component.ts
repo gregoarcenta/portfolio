@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import Toastify from 'toastify-js';
+import copy from 'copy-to-clipboard';
 
 @Component({
   selector: 'app-footer',
@@ -14,8 +15,9 @@ export class FooterComponent {
   public email = signal<string>('gregoarcenta@gmail.com');
 
   copyEmail() {
-    const email = 'gregoarcenta@gmail.com';
-    navigator.clipboard.writeText(email).then(() => {
+    const hasBeenCopy = copy(this.email());
+
+    if (hasBeenCopy) {
       Toastify({
         text: '¡Correo electrónico copiado!',
         duration: 3000,
@@ -29,6 +31,6 @@ export class FooterComponent {
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         },
       }).showToast();
-    });
+    }
   }
 }
