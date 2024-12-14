@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -10,6 +10,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   },
 })
 export class FooterComponent {
+  public email = signal<string>('gregoarcenta@gmail.com');
+
   copyEmail() {
     const email = 'gregoarcenta@gmail.com';
     navigator.clipboard.writeText(email).then(() => {
