@@ -1,0 +1,115 @@
+<!--image-->
+<div class="flex xl:hidden justify-center items-center p-4">
+  <img
+    class="h-auto min-w-40 lg:min-w-60 rounded-full object-cover"
+    [ngSrc]="imageProfile()"
+    alt="Image Profile (Gregory Arcentales)"
+    priority
+    width="200"
+    height="200"
+  />
+</div>
+
+<!--content-->
+<section>
+  <header class="flex justify-center xl:justify-start items-center space-x-4">
+    <img
+      class="hidden xl:block h-auto w-32 rounded-3xl"
+      [ngSrc]="imageProfile()"
+      alt="Image Profile (Gregory Arcentales)"
+      priority
+      width="200"
+      height="200"
+    />
+    <div>
+      <!-- title -->
+      <h1
+        class="font-bold text-white text-center xl:text-left text-4xl lg:text-5xl mt-4 xl:mt-0"
+      >
+        Hola, soy <span class="text-yellow-500">Gregory Arcentales</span>
+      </h1>
+      <!-- subtitle -->
+      <h2
+        class="text-gray-300 mt-6 text-2xl text-center xl:text-left font-bold"
+      >
+        Desarrollador Full Stack
+      </h2>
+      <!-- separator -->
+      <div class="flex justify-center xl:justify-start">
+        <div
+          class="w-32 xl:w-20 h-1 bg-yellow-500 rounded-l-2xl xl:rounded-l-none rounded-r-2xl"
+        ></div>
+      </div>
+    </div>
+  </header>
+  <p
+    class="mt-5 xl:mt-8 text-gray-400 text-center xl:text-justify leading-7 text-sm sm:text-base"
+  >
+    Soy Desarrollador Full Stack especializado en HTML, CSS, JavaScript,
+    TypeScript, Node.js, Angular y RxJS. Me encanta explorar nuevas tecnologías
+    y resolver problemas complejos.
+  </p>
+  <p
+    class="mt-4 text-gray-400 text-center xl:text-justify leading-7 text-sm sm:text-base hidden xl:block"
+  >
+    Con dos años de experiencia en desarrollo web, me dedico a crear
+    aplicaciones eficientes y fáciles de usar. Cuando no estoy programando,
+    disfruto viendo videos de tecnología en YouTube para alimentar mi
+    curiosidad.
+  </p>
+  <footer class="mt-5 xl:mt-8">
+    <div class="flex justify-center xl:justify-start space-x-2 md:space-x-6">
+      <button
+        class="group relative h-12 w-64 px-2 overflow-hidden rounded-3xl border-l-4 border-yellow-500 bg-white text-lg shadow"
+        routerLink="/projects"
+        title="Ir a mis proyectos"
+      >
+        <div
+          class="absolute inset-0 w-0 bg-yellow-500 transition-all duration-[250ms] ease-out group-hover:w-full"
+        ></div>
+        <div class="flex justify-center items-center space-x-2">
+          <span class="relative bold text-black group-hover:text-white">
+            Proyectos
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-gray-800 group-hover:fill-white z-10"
+          >
+            <path
+              d="M8.293 6.293 2.586 12l5.707 5.707 1.414-1.414L5.414 12l4.293-4.293zm7.414 11.414L21.414 12l-5.707-5.707-1.414 1.414L18.586 12l-4.293 4.293z"
+            ></path>
+          </svg>
+        </div>
+      </button>
+      <button
+        class="group relative h-12 w-64 px-2 overflow-hidden rounded-3xl border-l-4 border-yellow-500 bg-white text-lg shadow"
+        title="Curriculum"
+      >
+        <div
+          class="absolute inset-0 w-0 bg-yellow-500 transition-all duration-[250ms] ease-out group-hover:w-full"
+        ></div>
+        <div class="flex justify-center items-center space-x-2">
+          <span class="relative text-gray-800 group-hover:text-white"
+            >Curriculum
+          </span>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-gray-800 z-10 group-hover:fill-white"
+          >
+            <path
+              d="M20 3H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM4 19V5h16l.002 14H4z"
+            ></path>
+            <path d="M6 7h12v2H6zm0 4h12v2H6zm0 4h6v2H6z"></path>
+          </svg>
+        </div>
+      </button>
+    </div>
+  </footer>
+</section>

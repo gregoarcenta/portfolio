@@ -1,57 +1,19 @@
-<div class="grid grid-cols-2 h-full md:items-center">
+<article class="grid grid-cols-12 lg:h-full md:items-center">
   <!--content-->
-  <article class="col-span-2 md:col-span-1">
-    <header>
-      <h1 class="text-5xl font-bold text-white">Hola, soy Alex</h1>
-      <p class="text-2xl text-gray-300 mt-6">Desarrollador Full Stack</p>
-    </header>
-    <p class="mt-3 text-gray-400 text-justify leading-7">
-      Soy Desarrollador Full Stack especializado en HTML, CSS, JavaScript,
-      TypeScript, Node.js, Angular y RxJS. Me encanta explorar nuevas
-      tecnologías y resolver problemas complejos.
-    </p>
-    <p class="mt-3 text-gray-400 text-justify leading-7">
-      Con dos años de experiencia en desarrollo web, me dedico a crear
-      aplicaciones eficientes y fáciles de usar. Cuando no estoy programando,
-      disfruto viendo videos de tecnología en YouTube para alimentar mi
-      curiosidad.
-    </p>
-    <footer class="mt-4 md:mt-6">
-      <div class="flex justify-center space-x-6">
-        <button
-          class="group relative h-12 w-48 overflow-hidden rounded-3xl border-l-4 border-yellow-500 bg-white text-lg shadow"
-          routerLink="/projects"
-        >
-          <div
-            class="absolute inset-0 w-0 bg-yellow-500 transition-all duration-[250ms] ease-out group-hover:w-full"
-          ></div>
-          <span class="relative bold text-black group-hover:text-white"
-            >Proyectos</span
-          >
-        </button>
-        <button
-          class="group relative h-12 w-48 overflow-hidden rounded-3xl border-l-4 border-yellow-500 bg-white text-lg shadow"
-        >
-          <div
-            class="absolute inset-0 w-0 bg-yellow-500 transition-all duration-[250ms] ease-out group-hover:w-full"
-          ></div>
-          <span class="relative text-black group-hover:text-white"
-            >Descargar CV</span
-          >
-        </button>
-      </div>
-    </footer>
-  </article>
+  <section class="col-span-12 xl:col-span-8 px-2">
+    <app-profile-content />
+  </section>
 
-  <!--image-->
-  <div class="hidden md:flex justify-center items-center">
-    <img
-      class="h-auto max-w-60"
-      ngSrc="assets/image-profile.png"
-      alt="Image Profile (Gregory Arcentales)"
-      priority
-      width="796"
-      height="1059"
-    />
-  </div>
-</div>
+  <!--  <section class="col-span-1"></section>-->
+
+  <!-- Grid abilities -->
+  <section
+    class="col-span-12 xl:col-span-4 px-2 mt-7 xl:mt-0 md:mb-32 lg:mb-5 xl:mb-0 flex justify-center xl:justify-end"
+  >
+    <app-abilities />
+  </section>
+
+  <section class="md:hidden col-span-12 mt-7">
+    <app-links-footer />
+  </section>
+</article>
