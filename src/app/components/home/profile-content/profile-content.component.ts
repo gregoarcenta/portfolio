@@ -13,4 +13,9 @@ import { RouterLink } from '@angular/router';
 })
 export class ProfileContentComponent {
   public imageProfile = signal('/assets/images/profile.jpg');
+
+  openCV() {
+    const pdfUrl = 'assets/documents/cv.pdf';
+    window.open(pdfUrl, '_blank');
+  }
 }
