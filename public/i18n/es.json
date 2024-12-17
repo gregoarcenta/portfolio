@@ -17,5 +17,20 @@
       "en": "Inglés (EE. UU.)",
       "es": "Español"
     }
+  },
+  "home": {
+    "profile": {
+      "greeting": "Hola, soy Gregory Arcentales",
+      "profession": "Desarrollador de Software",
+      "message_mobile": "Soy un desarrollador web con 2 años de experiencia. Me enfoco en crear aplicaciones funcionales con una excelente experiencia de usuario.",
+      "message_desktop": "Soy un desarrollador web con dos años de experiencia en programación y resolución de problemas. Me enfoco en crear aplicaciones funcionales y con una excelente experiencia de usuario. A lo largo de mi carrera, he trabajado en diversos proyectos que me han permitido mejorar mis habilidades y aprender nuevas tecnologías.",
+      "btn_projects": "Mis proyectos",
+      "btn_cv": "Mi Currículum",
+      "label_projects": "Ver mis proyectos",
+      "label_cv": "Ver mi Currículum Vitae"
+    },
+    "abilities": {
+      "title": "Abilities"
+    }
   }
 }

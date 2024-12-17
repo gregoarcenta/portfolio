@@ -1,115 +1,119 @@
-<!--image-->
-<div class="flex xl:hidden justify-center items-center p-4">
-  <img
-    class="h-auto min-w-40 lg:min-w-60 rounded-full object-cover"
-    [ngSrc]="imageProfile()"
-    alt="Image Profile (Gregory Arcentales)"
-    priority
-    width="200"
-    height="200"
-  />
-</div>
-
-<!--content-->
-<section>
-  <header class="flex justify-center xl:justify-start items-center space-x-4">
+<div class="p-4 mx-auto max-w-screen-xl text-center lg:px-12 2xl:py-16">
+  <!-- profile image-->
+  <div class="flex justify-center mb-8">
     <img
-      class="hidden xl:block h-auto w-32 rounded-3xl"
+      class="h-auto max-w-40 md:max-w-48 rounded-full object-cover"
       [ngSrc]="imageProfile()"
       alt="Image Profile (Gregory Arcentales)"
       priority
       width="200"
       height="200"
     />
-    <div>
-      <!-- title -->
-      <h1
-        class="font-bold text-white text-center xl:text-left text-4xl lg:text-5xl mt-4 xl:mt-0"
-      >
-        Hola, soy <span class="text-yellow-500">Gregory Arcentales</span>
-      </h1>
-      <!-- subtitle -->
-      <h2
-        class="text-gray-300 mt-6 text-2xl text-center xl:text-left font-bold"
-      >
-        Desarrollador Full Stack
-      </h2>
-      <!-- separator -->
-      <div class="flex justify-center xl:justify-start">
-        <div
-          class="w-32 xl:w-20 h-1 bg-yellow-500 rounded-l-2xl xl:rounded-l-none rounded-r-2xl"
-        ></div>
+  </div>
+  <!--title-->
+  <h1
+    class="mb-4 py-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white h1-color"
+  >
+    {{ "home.profile.greeting" | translate }}
+  </h1>
+  <!--subtitle-->
+  <h2
+    class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white"
+  >
+    {{ "home.profile.profession" | translate }}
+  </h2>
+  <!--content-->
+  <p
+    class="lg:hidden mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"
+  >
+    {{ "home.profile.message_mobile" | translate }}
+  </p>
+  <p
+    class="hidden lg:block mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400 !leading-9"
+  >
+    {{ "home.profile.message_desktop" | translate }}
+  </p>
+
+  <!--Buttons-->
+  <div
+    class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4"
+  >
+    <!--btn projects-->
+    <a
+      class="group sm:w-60 relative inline-flex justify-center items-center py-3 px-5 text-lg font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 focus:ring-gray-100 bg-white hover:text-white dark:border-gray-700 dark:focus:ring-gray-800 cursor-pointer"
+      data-tooltip-target="tooltip-projects"
+      data-tooltip-placement="top"
+      routerLink="/projects"
+    >
+      <!--hover-->
+      <div
+        class="absolute inset-0 w-2 bg-yellow-400 rounded rounded-r-none transition-all duration-[250ms] ease-out group-hover:w-full group-hover:rounded-r"
+      ></div>
+      <!--content-->
+      <div class="flex justify-center items-center space-x-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          class="z-10 group-hover:fill-white"
+        >
+          <!--          class="fill-gray-800 group-hover:fill-white z-10"-->
+          <path
+            d="M8.293 6.293 2.586 12l5.707 5.707 1.414-1.414L5.414 12l4.293-4.293zm7.414 11.414L21.414 12l-5.707-5.707-1.414 1.414L18.586 12l-4.293 4.293z"
+          ></path>
+        </svg>
+        <span class="relative">
+          {{ "home.profile.btn_projects" | translate }}
+        </span>
       </div>
-    </div>
-  </header>
-  <p
-    class="mt-5 xl:mt-8 text-gray-400 text-center xl:text-justify leading-7 text-sm sm:text-base"
-  >
-    Soy Desarrollador Full Stack especializado en HTML, CSS, JavaScript,
-    TypeScript, Node.js, Angular y RxJS. Me encanta explorar nuevas tecnologías
-    y resolver problemas complejos.
-  </p>
-  <p
-    class="mt-4 text-gray-400 text-center xl:text-justify leading-7 text-sm sm:text-base hidden xl:block"
-  >
-    Con dos años de experiencia en desarrollo web, me dedico a crear
-    aplicaciones eficientes y fáciles de usar. Cuando no estoy programando,
-    disfruto viendo videos de tecnología en YouTube para alimentar mi
-    curiosidad.
-  </p>
-  <footer class="mt-5 xl:mt-8">
-    <div class="flex justify-center xl:justify-start space-x-2 md:space-x-6">
-      <button
-        class="group relative h-12 w-64 px-2 overflow-hidden rounded-3xl border-l-4 border-yellow-500 bg-white text-lg shadow"
-        routerLink="/projects"
-        title="Ir a mis proyectos"
+      <!--tooltip-->
+      <div
+        id="tooltip-projects"
+        role="tooltip"
+        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
       >
-        <div
-          class="absolute inset-0 w-0 bg-yellow-500 transition-all duration-[250ms] ease-out group-hover:w-full"
-        ></div>
-        <div class="flex justify-center items-center space-x-2">
-          <span class="relative bold text-black group-hover:text-white">
-            Proyectos
-          </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            class="fill-gray-800 group-hover:fill-white z-10"
-          >
-            <path
-              d="M8.293 6.293 2.586 12l5.707 5.707 1.414-1.414L5.414 12l4.293-4.293zm7.414 11.414L21.414 12l-5.707-5.707-1.414 1.414L18.586 12l-4.293 4.293z"
-            ></path>
-          </svg>
-        </div>
-      </button>
-      <button
-        class="group relative h-12 w-64 px-2 overflow-hidden rounded-3xl border-l-4 border-yellow-500 bg-white text-lg shadow"
-        title="Ver curriculum"
-        (click)="openCV()"
+        {{ "home.profile.label_projects" | translate }}
+      </div>
+    </a>
+    <!--btn curriculum-->
+    <a
+      class="group sm:w-60 relative inline-flex justify-center items-center py-3 px-5 text-lg font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 focus:ring-gray-100 bg-white hover:text-white dark:border-gray-700 dark:focus:ring-gray-800 cursor-pointer"
+      title="Ver curriculum"
+      data-tooltip-target="tooltip-cv"
+      data-tooltip-placement="top"
+      (click)="openCV()"
+      (keyup.enter)="openCV()"
+      tabindex="0"
+    >
+      <!--hover-->
+      <div
+        class="absolute inset-0 w-2 bg-gray-700 rounded rounded-r-none transition-all duration-[250ms] ease-out group-hover:w-full group-hover:rounded-r"
+      ></div>
+      <!--content-->
+      <div class="flex justify-center items-center space-x-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          class="z-10 fill-gray-900 group-hover:fill-white"
+        >
+          <path
+            d="M20 3H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM4 19V5h16l.002 14H4z"
+          ></path>
+          <path d="M6 7h12v2H6zm0 4h12v2H6zm0 4h6v2H6z"></path>
+        </svg>
+        <span class="relative">{{ "home.profile.btn_cv" | translate }}</span>
+      </div>
+      <!--tooltip-->
+      <div
+        id="tooltip-cv"
+        role="tooltip"
+        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
       >
-        <div
-          class="absolute inset-0 w-0 bg-yellow-500 transition-all duration-[250ms] ease-out group-hover:w-full"
-        ></div>
-        <div class="flex justify-center items-center space-x-2">
-          <span class="relative text-gray-800 group-hover:text-white"
-            >Curriculum
-          </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            class="fill-gray-800 z-10 group-hover:fill-white"
-          >
-            <path
-              d="M20 3H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM4 19V5h16l.002 14H4z"
-            ></path>
-            <path d="M6 7h12v2H6zm0 4h12v2H6zm0 4h6v2H6z"></path>
-          </svg>
-        </div>
-      </button>
-    </div>
-  </footer>
-</section>
+        {{ "home.profile.label_cv" | translate }}
+      </div>
+    </a>
+  </div>
+</div>
