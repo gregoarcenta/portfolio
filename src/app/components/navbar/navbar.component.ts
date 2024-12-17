@@ -2,15 +2,19 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  computed,
   ElementRef,
+  inject,
   viewChild,
 } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
+import { Lang, LanguageService } from '@/services/language.service';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive, NgOptimizedImage],
+  imports: [RouterLink, RouterLinkActive, NgOptimizedImage, TranslatePipe],
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
@@ -22,6 +26,19 @@ import { NgOptimizedImage } from '@angular/common';
 export class NavbarComponent implements AfterViewInit {
   public themeToggleDarkIcon = viewChild<ElementRef>('darkicon');
   public themeToggleLightIcon = viewChild<ElementRef>('lighticon');
+  public navRoutes = viewChild<ElementRef>('navRoutes');
+  public hamburguerButton = viewChild<ElementRef>('hamburguerButton');
+
+  private readonly languageService = inject(LanguageService);
+  private readonly router = inject(Router);
+
+  public currentLanguage = computed(() =>
+    this.languageService.currentLanguage(),
+  );
+
+  public languageAvailable = computed(() =>
+    this.languageService.languageAvailable(),
+  );
 
   ngAfterViewInit(): void {
     // Change the icons inside the button based on previous settings
@@ -65,5 +82,17 @@ export class NavbarComponent implements AfterViewInit {
 
   openLink(url: string): void {
     window.open(url, '_blank');
+  }
+
+  async navigateToUrl(url: string) {
+    await this.router.navigate([url]);
+    if (!this.navRoutes()?.nativeElement.classList.contains('hidden')) {
+      this.hamburguerButton()?.nativeElement.click();
+    }
+  }
+
+  changeLanguage(lang: Lang): void {
+    this.languageService.setLanguage(lang);
+    setTimeout(() => document.body.click());
   }
 }

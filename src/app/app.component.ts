@@ -1,62 +1,43 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { initFlowbite } from 'flowbite';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '@/components/navbar/navbar.component';
-import { TranslateService } from '@ngx-translate/core';
 import { FooterComponent } from '@/components/footer/footer.component';
+import { LanguageService } from '@/services/language.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, FooterComponent],
+  imports: [RouterOutlet, FooterComponent, NavbarComponent],
   template: `
-    <app-navbar />
-    <main class="flex-1 container mx-auto flex items-center">
-      <!--      [ngStyle]="{ 'min-height': contentHeight() }"-->
-      <router-outlet />
-    </main>
-    <app-footer />
+    <div class="bg-white dark:bg-gray-900">
+      <app-navbar />
+      <main class="container mx-auto" style="margin-top: 76px">
+        <router-outlet />
+      </main>
+      <app-footer />
+    </div>
   `,
-  host: {
-    class: 'block min-h-dvh flex flex-col bg-gray-900',
-    '(window:resize)': 'setContentHeight()',
-  },
 })
-export class AppComponent implements AfterViewInit {
-  navbar = viewChild(NavbarComponent, { read: ElementRef });
-  footer = viewChild(FooterComponent, { read: ElementRef });
-  public contentHeight = signal<string>('500px');
+export class AppComponent {
+  // private readonly translate = inject(TranslateService);
+  private readonly languageService = inject(LanguageService);
 
-  constructor(private readonly translate: TranslateService) {
-    this.translate.addLangs(['en', 'es']);
-    const browserLang = this.translate.getBrowserLang();
-    if (browserLang === 'es') {
-      this.translate.use('es');
+  constructor() {
+    // Flowbite init
+    initFlowbite();
+
+    // Language init
+    this.languageService.init();
+
+    // Theme init
+    if (
+      localStorage.getItem('color-theme') === 'dark' ||
+      (!('color-theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
     } else {
-      this.translate.use('en');
+      document.documentElement.classList.remove('dark');
     }
-  }
-
-  ngAfterViewInit(): void {
-    this.setContentHeight();
-  }
-
-  setContentHeight(): void {
-    const windowHeight = window.innerHeight;
-    const navbarHeight = this.navbar()?.nativeElement.offsetHeight;
-    const footerHeight = this.footer()?.nativeElement.offsetHeight;
-
-    // console.log(windowHeight);
-    // console.log(navbarHeight, footerHeight);
-
-    const height = windowHeight - navbarHeight - footerHeight;
-
-    // console.log(height);
-
-    this.contentHeight.set(`${height}px`);
   }
 }
