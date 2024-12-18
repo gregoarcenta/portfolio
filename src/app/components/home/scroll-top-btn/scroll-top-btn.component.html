@@ -1,0 +1,26 @@
+<button
+  #scrollBtn
+  class="pulse-button z-10 border invisible opacity-0 border-gray-700 hover:border-gray-300 dark:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg"
+  [style.bottom.px]="bottomValue()"
+  data-tooltip-target="tooltip-top"
+  data-tooltip-placement="left"
+  (click)="toScrollTop()"
+>
+  <svg
+    class="w-6 h-6 text-gray-800 dark:text-white"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 6v13m0-13 4 4m-4-4-4 4"
+    />
+  </svg>
+</button>

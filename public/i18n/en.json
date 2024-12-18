@@ -19,6 +19,7 @@
     }
   },
   "home": {
+    "btn_down": "Scroll back to the top of the page",
     "profile": {
       "greeting": "Hi, I'm Gregory Arcentales",
       "profession": "Software Developer",
@@ -27,8 +28,7 @@
       "btn_projects": "My projects",
       "btn_cv": "My Curriculum",
       "label_projects": "See my projects",
-      "label_cv": "See my Curriculum Vitae",
-      "down": "Click to explore more content below"
+      "label_cv": "See my Curriculum Vitae"
     },
     "abilities": {
       "title": "Abilities",

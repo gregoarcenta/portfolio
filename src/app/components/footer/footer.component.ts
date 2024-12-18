@@ -8,6 +8,7 @@ import { LinksFooterComponent } from '@/components/home/links-footer/links-foote
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'relative',
+    id: 'footer',
   },
 })
 export class FooterComponent {}
