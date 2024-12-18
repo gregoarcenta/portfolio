@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '@/components/navbar/navbar.component';
 import { FooterComponent } from '@/components/footer/footer.component';
 import { LanguageService } from '@/services/language.service';
+import { ThemeService } from '@/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +15,15 @@ import { LanguageService } from '@/services/language.service';
       <main class="container mx-auto flex-1" style="margin-top: 76px;">
         <router-outlet />
       </main>
-      <app-footer />
+      @defer {
+        <app-footer />
+      }
     </div>
   `,
 })
 export class AppComponent {
-  // private readonly translate = inject(TranslateService);
   private readonly languageService = inject(LanguageService);
+  private readonly themeService = inject(ThemeService);
 
   constructor() {
     // Flowbite init
@@ -30,14 +33,6 @@ export class AppComponent {
     this.languageService.init();
 
     // Theme init
-    if (
-      localStorage.getItem('color-theme') === 'dark' ||
-      (!('color-theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    this.themeService.themeInit();
   }
 }

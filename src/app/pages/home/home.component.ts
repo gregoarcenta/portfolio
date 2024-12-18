@@ -1,16 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LinksFooterComponent } from '@/components/home/links-footer/links-footer.component';
-import { ProfileContentComponent } from '@/components/home/profile-content/profile-content.component';
 import { AbilitiesComponent } from '@/components/home/abilities/abilities.component';
 import { ExperienceComponent } from '@/components/home/experience/experience.component';
+import { ProfileComponent } from '@/components/home/profile/profile.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    LinksFooterComponent,
-    ProfileContentComponent,
+    ProfileComponent,
     AbilitiesComponent,
     ExperienceComponent,
+    LinksFooterComponent,
   ],
   selector: 'app-home',
   templateUrl: './home.component.html',

@@ -4,9 +4,9 @@ import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-profile-content',
+  selector: 'app-profile',
   imports: [NgOptimizedImage, RouterLink, TranslatePipe],
-  templateUrl: './profile-content.component.html',
+  templateUrl: './profile.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
     .h1-color {
@@ -16,7 +16,7 @@ import { TranslatePipe } from '@ngx-translate/core';
     }
   `,
 })
-export class ProfileContentComponent {
+export class ProfileComponent {
   public imageProfile = signal('/assets/images/profile.jpg');
 
   openCV() {

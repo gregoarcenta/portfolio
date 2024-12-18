@@ -11,6 +11,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Lang, LanguageService } from '@/services/language.service';
+import { ThemeService } from '@/services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -24,14 +25,17 @@ import { Lang, LanguageService } from '@/services/language.service';
   `,
 })
 export class NavbarComponent implements AfterViewInit {
-  public themeToggleDarkIcon = viewChild<ElementRef>('darkicon');
-  public themeToggleLightIcon = viewChild<ElementRef>('lighticon');
+  public themeToggleDarkIcon = viewChild<ElementRef>('darkIcon');
+  public themeToggleLightIcon = viewChild<ElementRef>('lightIcon');
   public navRoutes = viewChild<ElementRef>('navRoutes');
   public hamburguerButton = viewChild<ElementRef>('hamburguerButton');
 
+  // services
   private readonly languageService = inject(LanguageService);
+  private readonly themeService = inject(ThemeService);
   private readonly router = inject(Router);
 
+  // properties computed
   public currentLanguage = computed(() =>
     this.languageService.currentLanguage(),
   );
@@ -42,11 +46,7 @@ export class NavbarComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     // Change the icons inside the button based on previous settings
-    if (
-      localStorage.getItem('color-theme') === 'dark' ||
-      (!('color-theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
+    if (this.themeService.isDarkTheme()) {
       this.themeToggleLightIcon()?.nativeElement.classList.remove('hidden');
     } else {
       this.themeToggleDarkIcon()?.nativeElement.classList.remove('hidden');
