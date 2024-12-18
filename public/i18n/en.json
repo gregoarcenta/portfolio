@@ -27,10 +27,42 @@
       "btn_projects": "My projects",
       "btn_cv": "My Curriculum",
       "label_projects": "See my projects",
-      "label_cv": "See my Curriculum Vitae"
+      "label_cv": "See my Curriculum Vitae",
+      "down": "Click to explore more content below"
     },
     "abilities": {
-      "title": "Abilities"
+      "title": "Abilities",
+      "html": "HTML",
+      "css": "CSS",
+      "js": "JavaScript",
+      "ts": "TypeScript",
+      "tailwind": "Tailwind",
+      "bootstrap": "Bootstrap",
+      "angular": "Angular",
+      "react": "React",
+      "node": "Node.js",
+      "git": "Git",
+      "java": "Java",
+      "postgresql": "PostgreSQL",
+      "docker": "Docker"
+    },
+    "experiences": {
+      "title": "Work Experience",
+      "1": {
+        "date": "March 2022 - April 2023",
+        "role": "Frontend Developer - Diverzu",
+        "description": "I was responsible for creating user experiences for an e-commerce site, using the latest web development technologies and approaches. My main focus was on Angular and related technologies to deliver high-performance, visually appealing solutions."
+      },
+      "2": {
+        "date": "April 2021 - October 2021",
+        "role": "Full Stack Developer - Clear Minds Consultores",
+        "description": "I was responsible for working on a key project related to the development of web interfaces and forms. My role was to design and develop efficient and attractive user interfaces, as well as manage communication between the frontend and backend of the system. This exciting project involved technologies such as Docker, Java, JavaScript, Bootstrap, and Angular."
+      },
+      "3": {
+        "date": "October 2019 - January 2020",
+        "role": "Full Stack Developer Intern - RunaChay",
+        "description": "During my internship, I had the opportunity to delve into the exciting world of web development. My main focus was on creating web interfaces using technologies such as HTML, CSS, Bootstrap, and JavaScript. Additionally, I worked with the PHP web development framework Laravel."
+      }
     }
   }
 }

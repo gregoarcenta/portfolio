@@ -1,5 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { _, TranslateService } from '@ngx-translate/core';
+import { take } from 'rxjs';
 
 export enum Lang {
   EN = 'en',
@@ -34,6 +35,7 @@ export class LanguageService {
     localStorage.setItem('lang_', language);
     this.translate
       .get(_(`header.language.${language}`))
+      .pipe(take(1))
       .subscribe((languageName: string) => {
         this.currentLanguage.set({
           url: `assets/icons/${language}.png`,

@@ -19,7 +19,7 @@ import { Lang, LanguageService } from '@/services/language.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
     .routerLinkActive {
-      @apply bg-yellow-400 text-gray-900 font-bold md:dark:hover:text-gray-900 dark:hover:bg-yellow-400;
+      @apply bg-primary-500 text-gray-900 font-bold dark:hover:text-gray-900 dark:hover:bg-yellow-400;
     }
   `,
 })

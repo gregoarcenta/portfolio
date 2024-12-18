@@ -27,10 +27,42 @@
       "btn_projects": "Mis proyectos",
       "btn_cv": "Mi Currículum",
       "label_projects": "Ver mis proyectos",
-      "label_cv": "Ver mi Currículum Vitae"
+      "label_cv": "Ver mi Currículum Vitae",
+      "down": "Haz clic para explorar más contenido abajo"
     },
     "abilities": {
-      "title": "Abilities"
+      "title": "Habilidades",
+      "html": "HTML",
+      "css": "CSS",
+      "js": "JavaScript",
+      "ts": "TypeScript",
+      "tailwind": "Tailwind",
+      "bootstrap": "Bootstrap",
+      "angular": "Angular",
+      "react": "React",
+      "node": "Node.js",
+      "git": "Git",
+      "java": "Java",
+      "postgresql": "PostgreSQL",
+      "docker": "Docker"
+    },
+    "experiences": {
+      "title": "Experiencia laboral",
+      "1": {
+        "date": "Marzo 2022 - Abril 2023",
+        "role": "Desarrollador Frontend - Diverzu",
+        "description": "Fui responsable de crear experiencias de usuario para un sitio de comercio electrónico, utilizando las últimas tecnologías y enfoques de desarrollo web. Mi enfoque principal fue en Angular y tecnologías relacionadas para brindar soluciones de alto rendimiento y visualmente atractivas."
+      },
+      "2": {
+        "date": "Abril 2021 - Octubre 2021",
+        "role": "Desarrollador Full Stack - Clear Minds Consultores",
+        "description": "Tuve la responsabilidad de trabajar en un proyecto clave relacionado con el desarrollo de interfaces web y formularios. Mi rol consistió en diseñar y desarrollar interfaces de usuario eficientes y atractivas, además de gestionar la comunicación entre el frontend y el backend del sistema. Este emocionante proyecto involucró tecnologías como Docker, Java, JavaScript, Bootstrap y Angular."
+      },
+      "3": {
+        "date": "Octubre 2019 - Enero 2020",
+        "role": "Desarrollador Full Stack Intern - RunaChay",
+        "description": "Durante mis prácticas profesionales, tuve la oportunidad de adentrarme en el emocionante mundo del desarrollo web. Mi enfoque principal fue la creación de interfaces web utilizando tecnologías como HTML, CSS, Bootstrap y JavaScript. Además, trabajé con el framework de desarrollo web Laravel de PHP."
+      }
     }
   }
 }

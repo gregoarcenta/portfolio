@@ -12,7 +12,7 @@ import { TranslatePipe } from '@ngx-translate/core';
     .h1-color {
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
-      background: linear-gradient(135deg, #f2c511, #eeeeee);
+      background: linear-gradient(135deg, #f2c511, #a2a2a2);
     }
   `,
 })
