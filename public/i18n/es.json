@@ -69,5 +69,12 @@
       "certificate": "Certificado",
       "link": "Ver certificado"
     }
+  },
+  "footer": {
+    "title": "¿Interesado en colaborar? ¡Hablemos!",
+    "copyButton": "Copiar correo",
+    "contactMessage": "O, si lo prefieres, también puedes llenar el siguiente",
+    "contactForm": "formulario de contacto",
+    "copyright": "© 2024 Gregory Arcentales. Todos los derechos reservados."
   }
 }

@@ -1,74 +1,171 @@
 <div
-  class="flex flex-wrap md:flex-col justify-center md:justify-end items-center md:items-end mb-0 sm:mb-10 md:mr-1 xl:mr-5 space-y-3"
+  class="flex flex-wrap md:flex-col md:justify-end items-center md:items-start mb-0 sm:mb-10 md:mr-1 xl:mr-5 space-y-3"
 >
   <!--title-->
   <h3
-    class="font-bold text-2xl md:text-3xl text-center md:text-end lg:mb-3 text-gray-300 xl:text-gray-800"
+    class="font-extrabold text-2xl md:text-3xl text-start md:text-end lg:mb-3 text-gray-300 xl:text-gray-800"
   >
-    ¿Interesado en colaborar? ¡Hablemos!
+    {{ "footer.title" | translate }}
   </h3>
-  <!-- Enlace a GitHub -->
-  <a
-    href="https://github.com/gregoarcenta"
-    target="_blank"
-    aria-label="Ir al perfil de GitHub de Gregory Arcentales"
-    class="transform transition-all duration-300 ease-in-out hover:scale-105 flex justify-center items-center text-gray-400 md:text-gray-800 md:bg-yellow-300 rounded-3xl border md:border-2 md:border-gray-800 p-2 w-40 md:w-64 mr-3 md:mr-0"
-    title="Ir a github"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      class="fill-gray-400 md:fill-gray-800"
-    >
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
-      ></path>
-    </svg>
-    <span class="ml-2">GitHub</span>
-  </a>
-  <!-- Enlace a LinkedIn -->
-  <a
-    href="https://www.linkedin.com/in/gregoarcenta/"
-    target="_blank"
-    aria-label="Ir al perfil de LinkedIn de Gregory Arcentales"
-    class="transform transition-all duration-300 ease-in-out hover:scale-105 flex justify-center items-center text-gray-400 md:text-gray-800 md:bg-yellow-300 rounded-3xl border md:border-2 md:border-gray-800 p-2 w-40 md:w-64"
-    title="Ir a linkedin"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      class="fill-gray-400 md:fill-gray-800"
-    >
-      <path
-        d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"
-      ></path>
-    </svg>
-    <span class="ml-2">LinkedIn</span>
-  </a>
-  <!-- Email -->
-  <button
-    (click)="copyEmail()"
-    class="transform transition-all duration-300 ease-in-out hover:scale-105 flex items-center bg-yellow-300 border-2 border-gray-800 rounded-3xl px-4 py-2 space-x-2 mt-2 md:mt-0 w-64"
-    title="Correo electronico"
-    aria-label="Enviar un correo a Gregory Arcentales"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      class="fill-gray-800"
-    >
-      <path
-        d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.7-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7z"
-      ></path>
-    </svg>
-    <span class="text-gray-800">{{ email() }}</span>
-  </button>
+
+  <div class="flex flex-col justify-end items-start">
+    <div class="w-full self-start">
+      <!--form email copy-->
+      <div class="flex items-center">
+        <!--icon-->
+        <span
+          class="flex-shrink-0 z-10 inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-gray-800"
+          >
+            <path
+              d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.7-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7z"
+            ></path>
+          </svg>
+        </span>
+        <!--email-->
+        <div class="relative w-full">
+          <input
+            id="email"
+            type="text"
+            aria-describedby="helper-text-explanation"
+            class="bg-gray-50 border border-e-0 border-gray-300 text-gray-800 text-sm border-s-0 focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            [value]="email()"
+            readonly
+            disabled
+          />
+        </div>
+        <!--Button copy email-->
+        <button
+          data-tooltip-target="tooltip-copy-email"
+          class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium text-center text-white bg-primary-700 rounded-e-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-800 dark:bg-primary-700 dark:hover:bg-primary-800 dark:focus:ring-primary-800 border border-primary-700 dark:border-primary-600 hover:border-primary-800 dark:hover:border-primary-700"
+          type="button"
+          (click)="copyEmail()"
+        >
+          <span id="default-icon">
+            <svg
+              class="w-4 h-4"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 18 20"
+            >
+              <path
+                d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"
+              />
+            </svg>
+          </span>
+          <span id="success-icon" class="hidden items-center">
+            <svg
+              class="w-4 h-4"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 16 12"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5.917 5.724 10.5 15 1.5"
+              />
+            </svg>
+          </span>
+        </button>
+        <!--Tooltip-->
+        <div
+          id="tooltip-copy-email"
+          role="tooltip"
+          class="absolute z-50 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+        >
+          {{ "footer.copyButton" | translate }}
+        </div>
+      </div>
+      <!--message form-->
+      <p
+        id="helper-text-explanation"
+        class="text-sm text-white xl:text-gray-800"
+      >
+        {{ "footer.contactMessage" | translate }}
+        <a
+          routerLink="/contact"
+          class="font-semibold text-white xl:text-gray-800 hover:underline text-sm mt-2 inline-flex items-center gap-1"
+          >{{ "footer.contactForm" | translate }}
+          <svg
+            class="w-4 h-4 text-white xl:text-gray-800 inline-block"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
+            />
+          </svg>
+        </a>
+      </p>
+    </div>
+
+    <!--separator-->
+    <hr class="border-gray-600 h-1 w-full my-4" />
+
+    <!--social-->
+    <div class="flex gap-2">
+      <!-- Enlace a GitHub -->
+      <a
+        href="https://github.com/gregoarcenta"
+        target="_blank"
+        aria-label="Ir al perfil de GitHub de Gregory Arcentales"
+        class="transform transition-all duration-300 ease-in-out hover:scale-105 flex justify-center items-center text-gray-400 md:text-gray-800 md:bg-gray-50 rounded-lg shadow-sm border md:border-gray-300 p-2 w-40 md:w-60"
+        [title]="'header.links.github' | translate"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          class="fill-gray-400 md:fill-gray-800"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
+          ></path>
+        </svg>
+        <span class="ml-2">GitHub</span>
+      </a>
+      <!-- Enlace a LinkedIn -->
+      <a
+        href="https://www.linkedin.com/in/gregoarcenta/"
+        target="_blank"
+        aria-label="Ir al perfil de LinkedIn de Gregory Arcentales"
+        class="transform transition-all duration-300 ease-in-out hover:scale-105 flex justify-center items-center text-gray-400 md:text-gray-800 md:bg-gray-50 rounded-lg shadow-sm border md:border-gray-300 p-2 w-40 md:w-60"
+        [title]="'header.links.linkedin' | translate"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          class="fill-gray-400 md:fill-gray-800"
+        >
+          <path
+            d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"
+          ></path>
+        </svg>
+        <span class="ml-2">LinkedIn</span>
+      </a>
+    </div>
+  </div>
 </div>
