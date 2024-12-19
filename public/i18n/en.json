@@ -63,6 +63,11 @@
         "role": "Full Stack Developer Intern - RunaChay",
         "description": "During my internship, I had the opportunity to delve into the exciting world of web development. My main focus was on creating web interfaces using technologies such as HTML, CSS, Bootstrap, and JavaScript. Additionally, I worked with the PHP web development framework Laravel."
       }
+    },
+    "certifications": {
+      "title": "Certificates",
+      "certificate": "Certificate",
+      "link": "See certificate"
     }
   }
 }
