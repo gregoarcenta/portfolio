@@ -38,9 +38,13 @@
 <div
   class="absolute top-0 right-0 bottom-0 w-full h-full flex flex-col xl:flex-row-reverse justify-end xl:justify-between items-end p-1"
 >
-  <section class="hidden xl:block">
-    <app-links-footer />
-  </section>
+  @let screenWith = currentWidth$ | async;
+  @let isDesktop = screenWith! >= 1280;
+  @if (isDesktop) {
+    <section>
+      <app-links-footer />
+    </section>
+  }
 
   <!-- Copyright -->
   <footer

@@ -5,19 +5,27 @@
   </section>
 
   <!-- Grid abilities -->
-  <section class="pb-8 md:pb-16">
+  <section class="pb-16">
     <app-abilities />
   </section>
 
-  <section class="pb-8 md:pb-16">
-    <app-experience />
-  </section>
+  @defer {
+    <section class="pb-10">
+      <app-experience />
+    </section>
+  }
 
-  <section>
-    <app-certifications />
-  </section>
+  @defer {
+    <section class="pb-16 xl:pb-0">
+      <app-certifications />
+    </section>
+  }
 
-  <section class="md:hidden col-span-12 mt-7">
-    <app-links-footer />
-  </section>
+  @let screenWith = currentWidth$ | async;
+  @let isDesktop = screenWith! >= 1280;
+  @if (!isDesktop) {
+    <section>
+      <app-links-footer />
+    </section>
+  }
 </article>
