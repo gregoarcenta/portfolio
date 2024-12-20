@@ -5,6 +5,7 @@
       class="h-auto max-w-40 md:max-w-48 rounded-full object-cover"
       [ngSrc]="imageProfile()"
       alt="Image Profile (Gregory Arcentales)"
+      title="Image Profile (Gregory Arcentales)"
       priority
       placeholder="assets/images/profile.webp"
       width="200"
@@ -39,7 +40,7 @@
     class="flex flex-col mb-8 lg:mb-10 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4"
   >
     <!--btn projects-->
-    <a
+    <button
       class="group sm:w-60 relative inline-flex justify-center items-center py-3 px-5 text-lg font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 focus:ring-gray-100 bg-white hover:text-white dark:border-gray-700 dark:focus:ring-gray-800 cursor-pointer"
       data-tooltip-target="tooltip-projects"
       data-tooltip-placement="top"
@@ -75,9 +76,9 @@
       >
         {{ "home.profile.label_projects" | translate }}
       </div>
-    </a>
+    </button>
     <!--btn curriculum-->
-    <a
+    <button
       class="group sm:w-60 relative inline-flex justify-center items-center py-3 px-5 text-lg font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 focus:ring-gray-100 bg-white hover:text-white dark:border-gray-700 dark:focus:ring-gray-800 cursor-pointer"
       title="Ver curriculum"
       data-tooltip-target="tooltip-cv"
@@ -114,6 +115,6 @@
       >
         {{ "home.profile.label_cv" | translate }}
       </div>
-    </a>
+    </button>
   </div>
 </div>

@@ -11,15 +11,17 @@
     @for (ability of abilities(); track $index) {
       @if ($index < 4) {
         <div
-          class="border flex relative *:relative *:size-7 *:m-auto size-14 sm:size-16 mx-auto rounded-xl dark:bg-gray-900 dark:border-white/15 before:rounded-[11px] before:absolute before:inset-0 before:border-t before:border-white before:from-gray-100 dark:before:border-white/20 before:bg-gradient-to-b dark:before:from-white/10 dark:before:to-transparent before:shadow dark:before:shadow-gray-950"
+          class="border flex relative *:relative *:m-auto size-14 sm:size-16 mx-auto rounded-xl dark:bg-gray-900 dark:border-white/15 before:rounded-[11px] before:absolute before:inset-0 before:border-t before:border-white before:from-gray-100 dark:before:border-white/20 before:bg-gradient-to-b dark:before:from-white/10 dark:before:to-transparent before:shadow dark:before:shadow-gray-950"
           [attr.data-tooltip-target]="'tooltip-' + ability"
           data-tooltip-placement="top"
         >
           <img
             [ngSrc]="'assets/icons/' + ability + '.svg'"
-            alt="Html"
-            class="w-8 h-8 p-3"
-            fill
+            [alt]="ability"
+            [title]="ability"
+            class="p-3"
+            height="200"
+            width="200"
           />
         </div>
       }
@@ -31,15 +33,17 @@
     @for (ability of abilities(); track $index) {
       @if ($index >= 4 && $index < 9) {
         <div
-          class="border flex relative *:relative *:size-7 *:m-auto size-14 sm:size-16 mx-auto rounded-xl dark:bg-gray-900 dark:border-white/15 before:rounded-[11px] before:absolute before:inset-0 before:border-t before:border-white before:from-gray-100 dark:before:border-white/20 before:bg-gradient-to-b dark:before:from-white/10 dark:before:to-transparent before:shadow dark:before:shadow-gray-950"
+          class="border flex relative *:relative *:m-auto size-14 sm:size-16 mx-auto rounded-xl dark:bg-gray-900 dark:border-white/15 before:rounded-[11px] before:absolute before:inset-0 before:border-t before:border-white before:from-gray-100 dark:before:border-white/20 before:bg-gradient-to-b dark:before:from-white/10 dark:before:to-transparent before:shadow dark:before:shadow-gray-950"
           [attr.data-tooltip-target]="'tooltip-' + ability"
           data-tooltip-placement="top"
         >
           <img
             [ngSrc]="'assets/icons/' + ability + '.svg'"
-            alt="Html"
-            class="w-8 h-8 p-3"
-            fill
+            [alt]="ability"
+            [title]="ability"
+            class="p-3"
+            height="200"
+            width="200"
           />
         </div>
       }
@@ -51,15 +55,17 @@
     @for (ability of abilities(); track $index) {
       @if ($index >= 9) {
         <div
-          class="border flex relative *:relative *:size-7 *:m-auto size-14 sm:size-16 mx-auto rounded-xl dark:bg-gray-900 dark:border-white/15 before:rounded-[11px] before:absolute before:inset-0 before:border-t before:border-white before:from-gray-100 dark:before:border-white/20 before:bg-gradient-to-b dark:before:from-white/10 dark:before:to-transparent before:shadow dark:before:shadow-gray-950"
+          class="border flex relative *:relative *:m-auto size-14 sm:size-16 mx-auto rounded-xl dark:bg-gray-900 dark:border-white/15 before:rounded-[11px] before:absolute before:inset-0 before:border-t before:border-white before:from-gray-100 dark:before:border-white/20 before:bg-gradient-to-b dark:before:from-white/10 dark:before:to-transparent before:shadow dark:before:shadow-gray-950"
           [attr.data-tooltip-target]="'tooltip-' + ability"
           data-tooltip-placement="top"
         >
           <img
             [ngSrc]="'assets/icons/' + ability + '.svg'"
-            alt="Html"
-            class="w-8 h-8 p-3"
-            fill
+            [alt]="ability"
+            [title]="ability"
+            class="p-3"
+            height="200"
+            width="200"
           />
         </div>
       }
