@@ -4,3 +4,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Cambiar el grosor del scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* para scroll vertical */
+  height: 8px; /* para scroll horizontal */
+}
+
+/* Cambiar el color del "thumb" (la parte que se mueve) */
+::-webkit-scrollbar-thumb {
+  background-color: #eab308; /* amarillo */
+  border-radius: 20px; /* bordes redondeados */
+}
+
+/* Cambiar el color del track (fondo donde se mueve el thumb) */
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* color de fondo del track */
+  border-radius: 20px;
+}

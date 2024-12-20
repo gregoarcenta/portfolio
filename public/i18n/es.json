@@ -76,5 +76,16 @@
     "contactMessage": "O, si lo prefieres, también puedes llenar el siguiente",
     "contactForm": "formulario de contacto",
     "copyright": "© 2024 Gregory Arcentales. Todos los derechos reservados."
+  },
+  "contact": {
+    "title": "Contáctame",
+    "description": "¿Tienes un problema técnico? ¿Quieres colaborar en un proyecto o necesitas más detalles sobre mis servicios? ¡No dudes en escribirme!",
+    "emailLabel": "Tu correo electrónico",
+    "emailPlaceholder": "ejemplo: tunombre@correo.com",
+    "subjectLabel": "Asunto",
+    "subjectPlaceholder": "¿Sobre qué te gustaría hablar?",
+    "messageLabel": "Tu mensaje",
+    "messagePlaceholder": "Escribe tu mensaje aquí...",
+    "submitButton": "Enviar mensaje"
   }
 }

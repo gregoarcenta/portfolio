@@ -76,5 +76,16 @@
     "contactMessage": "Or, if you prefer, you can also fill out the following",
     "contactForm": "contact form",
     "copyright": "© 2024 Gregory Arcentales. All rights reserved."
+  },
+  "contact": {
+    "title": "Contact Me",
+    "description": "Do you have a technical issue? Want to collaborate on a project or need more details about my services? Feel free to reach out!",
+    "emailLabel": "Your email address",
+    "emailPlaceholder": "e.g., yourname@example.com",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "What would you like to discuss?",
+    "messageLabel": "Your message",
+    "messagePlaceholder": "Write your message here...",
+    "submitButton": "Send Message"
   }
 }

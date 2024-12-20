@@ -1,8 +1,14 @@
+@let currentRoute = currentRoute$ | async;
+@let screenWith = currentWidth$ | async;
+@let isDesktop = screenWith! >= 1280;
+@let isMiddle = screenWith! >= 768 && screenWith! < 1280;
+@let isHome = currentRoute === "/home";
+
 <!-- SVG yellow mobile -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 1440 320"
-  class="w-full block xl:hidden"
+  class="w-full block md:hidden"
 >
   <path
     fill="#eab308"
@@ -10,37 +16,53 @@
     d="M0,160L40,176C80,192,160,224,240,224C320,224,400,192,480,192C560,192,640,224,720,224C800,224,880,192,960,197.3C1040,203,1120,245,1200,229.3C1280,213,1360,139,1400,101.3L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
   ></path>
 </svg>
-<!-- SVG yellow middle -->
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 1440 320"
-  class="w-full hidden xl:block 2xl:hidden"
->
-  <path
-    fill="#eab308"
-    fill-opacity="1"
-    d="M0,224L80,197.3C160,171,320,117,480,80C640,43,800,21,960,16C1120,11,1280,21,1360,26.7L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-  ></path>
-</svg>
-<!-- SVG yellow desktop -->
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 1440 320"
-  class="w-full hidden 2xl:block"
->
-  <path
-    fill="#eab308"
-    fill-opacity="1"
-    d="M0,256L80,261.3C160,267,320,277,480,245.3C640,213,800,139,960,106.7C1120,75,1280,85,1360,90.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-  ></path>
-</svg>
+@if ((screenWith! >= 768 && !isHome) || (isMiddle && isHome)) {
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" class="w-full">
+    <path
+      fill="#eab308"
+      fill-opacity="1"
+      d="M0,40L80,35C160,30,320,25,480,30C640,35,800,40,960,40C1120,40,1280,35,1360,30L1440,25L1440,60L1360,60C1280,60,1120,60,960,60C800,60,640,60,480,60C320,60,160,60,80,60L0,60Z"
+    ></path>
+  </svg>
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" class="w-full">
+     <path
+       fill="#eab308"
+       fill-opacity="1"
+       d="M0,160L80,155C160,150,320,145,480,150C640,155,800,160,960,160C1120,160,1280,155,1360,150L1440,145L1440,200L1360,200C1280,200,1120,200,960,200C800,200,640,200,480,200C320,200,160,200,80,200L0,200Z"
+     ></path>
+   </svg>-->
+}
+@if (isHome) {
+  <!-- SVG yellow middle -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1440 320"
+    class="w-full hidden xl:block 2xl:hidden"
+  >
+    <path
+      fill="#eab308"
+      fill-opacity="1"
+      d="M0,224L80,197.3C160,171,320,117,480,80C640,43,800,21,960,16C1120,11,1280,21,1360,26.7L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+    ></path>
+  </svg>
+  <!-- SVG yellow desktop -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1440 320"
+    class="w-full hidden 2xl:block"
+  >
+    <path
+      fill="#eab308"
+      fill-opacity="1"
+      d="M0,256L80,261.3C160,267,320,277,480,245.3C640,213,800,139,960,106.7C1120,75,1280,85,1360,90.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+    ></path>
+  </svg>
+}
 
 <div
   class="absolute top-0 right-0 bottom-0 w-full h-full flex flex-col xl:flex-row-reverse justify-end xl:justify-between items-end p-1"
 >
-  @let screenWith = currentWidth$ | async;
-  @let isDesktop = screenWith! >= 1280;
-  @if (isDesktop) {
+  @if (isDesktop && isHome) {
     <section>
       <app-links-footer />
     </section>
@@ -48,7 +70,7 @@
 
   <!-- Copyright -->
   <footer
-    class="text-sm text-center text-gray-800 font-bold self-center xl:self-end"
+    class="text-sm w-full text-start text-gray-800 font-bold self-center xl:self-end"
   >
     {{ "footer.copyright" | translate }}
   </footer>
