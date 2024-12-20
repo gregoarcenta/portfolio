@@ -3,12 +3,12 @@ import { LinksFooterComponent } from '@/components/home/links-footer/links-foote
 import { TranslatePipe } from '@ngx-translate/core';
 import { ResizeService } from '@/services/resize.service';
 import { BehaviorSubject, filter, Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
-  imports: [LinksFooterComponent, TranslatePipe, AsyncPipe],
+  imports: [LinksFooterComponent, TranslatePipe, AsyncPipe, NgClass],
   templateUrl: './footer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
