@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
+import { IMAGE_CONFIG, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -7,6 +7,14 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'app-profile',
   imports: [NgOptimizedImage, RouterLink, TranslatePipe],
   templateUrl: './profile.component.html',
+  providers: [
+    {
+      provide: IMAGE_CONFIG,
+      useValue: {
+        placeholderResolution: 40,
+      },
+    },
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
     .h1-color {
