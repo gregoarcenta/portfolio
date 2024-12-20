@@ -73,6 +73,7 @@
   "footer": {
     "title": "Interested in collaborating? Let's talk!",
     "copyButton": "Copy link",
+    "emailCopied": "Email copied!",
     "contactMessage": "Or, if you prefer, you can also fill out the following",
     "contactForm": "contact form",
     "copyright": "© 2024 Gregory Arcentales. All rights reserved."
