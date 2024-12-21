@@ -88,5 +88,11 @@
     "messageLabel": "Tu mensaje",
     "messagePlaceholder": "Escribe tu mensaje aquí...",
     "submitButton": "Enviar mensaje"
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "description": "Aquí verás algunos de mis proyectos favoritos, en los que he trabajado con empeño y creatividad.",
+    "seeMore": "Ver más",
+    "preview": "Previsualizar Proyecto"
   }
 }
