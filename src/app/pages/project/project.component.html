@@ -1,0 +1,87 @@
+<!--If not exists-->
+@if (project() === null) {
+  <app-project-not-found />
+}
+
+<!--Initial Loader-->
+@if (!project()?.id && project() !== null) {
+  <app-loader />
+}
+
+@if (project()?.id) {
+  @let project_ = project()!;
+  <div class="py-12 px-4 mx-auto max-w-screen-xl">
+    <!-- Header Section -->
+    <div class="text-center mb-12">
+      <!-- Display the title dynamically from the project() data -->
+      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white">
+        {{ project_.name }}
+      </h2>
+      <!-- Display the project description dynamically -->
+      <p class="mt-4 text-lg text-gray-500 dark:text-gray-400">
+        {{ project_.description }}
+      </p>
+    </div>
+
+    <!-- Image and Details Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Project Image -->
+      <div>
+        <!-- Display the first image dynamically from the project data -->
+        <img
+          src="{{ project_.images[0] }}"
+          alt="{{ project_.name }} Preview"
+          class="rounded-lg shadow-lg w-full"
+        />
+      </div>
+
+      <!-- Project Details -->
+      <div class="flex flex-col justify-center">
+        <!-- Display a secondary title for details -->
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Learn More About {{ project_.name }}
+        </h3>
+        <!-- Provide a detailed description or functionality overview -->
+        <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+          {{ project_.description }} This project leverages modern frameworks
+          and tools to deliver a high-quality user experience.
+        </p>
+
+        <!-- Technologies Used -->
+        <div class="flex flex-wrap items-center gap-4 mb-6">
+          <span class="text-sm font-medium text-gray-600 dark:text-gray-400">
+            Technologies used:
+          </span>
+          <!-- Loop through the technologies array to display each technology dynamically -->
+          @for (tech of project_.technologies; track $index) {
+            <span
+              class="h-8 w-8 bg-gray-100 dark:bg-gray-700 flex items-center justify-center rounded-full text-sm font-medium"
+            >
+              {{ tech }}
+            </span>
+          }
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex gap-4">
+          <!-- Link to the live website dynamically -->
+          <a
+            [href]="project_.url"
+            target="_blank"
+            class="py-2 px-6 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium text-center"
+          >
+            See Live Website
+          </a>
+          <!-- Link to the GitHub repository dynamically -->
+          <a
+            [href]="project_.github_url"
+            target="_blank"
+            class="py-2 px-6 text-gray-900 border border-gray-300 hover:bg-gray-100 rounded-lg font-medium text-center dark:text-white dark:border-gray-600 dark:hover:bg-gray-700"
+          >
+            View GitHub Repository
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+}
