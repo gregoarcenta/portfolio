@@ -8,35 +8,28 @@ import {
   viewChildren,
 } from '@angular/core';
 import { initTooltips } from 'flowbite';
-import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { TruncatePipe } from '@/pipes/truncate.pipe';
 import { Lang } from '@/services/language.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { IProject, technologyClasses } from '@/interfaces/project';
+import { IProject } from '@/interfaces/project';
 import { projects_en, projects_es } from '@/data/projects';
+import { LoaderComponent } from '@/components/loader/loader.component';
+import { ProjectCardComponent } from '@/components/projects/project-card/project-card.component';
 
 @Component({
   selector: 'app-projects',
-  imports: [NgOptimizedImage, TranslatePipe, TruncatePipe],
+  imports: [TranslatePipe, LoaderComponent, ProjectCardComponent],
   templateUrl: './projects.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: `
-    .app-shadow {
-      -webkit-box-shadow: 13px 10px 9px -7px rgba(0, 0, 0, 0.06);
-      -moz-box-shadow: 13px 10px 9px -7px rgba(0, 0, 0, 0.06);
-      box-shadow: 13px 10px 9px -7px rgba(0, 0, 0, 0.06);
-    }
-  `,
 })
 export default class ProjectsComponent implements AfterViewInit {
-  private projectElements = viewChildren<ElementRef>('project');
+  private projectElements = viewChildren(ProjectCardComponent, {
+    read: ElementRef,
+  });
 
   public projects = signal<IProject[]>([]);
   public visibleProjects = signal<number>(3);
   public onLoadProjects = signal<boolean>(false);
-
-  protected readonly technologyClasses = technologyClasses;
 
   private readonly translateService = inject(TranslateService);
 
@@ -77,7 +70,6 @@ export default class ProjectsComponent implements AfterViewInit {
     setTimeout(() => {
       const newProjectIndex = this.visibleProjects();
       const lastVisibleElement = this.projectElements()[newProjectIndex - 1];
-
       if (lastVisibleElement) {
         lastVisibleElement.nativeElement.scrollIntoView({
           behavior: 'smooth',

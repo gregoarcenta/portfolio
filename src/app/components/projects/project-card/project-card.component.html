@@ -1,0 +1,67 @@
+@let project_ = project();
+<div
+  [@fadeInTop]="{ value: '', params: { delay: delay() } }"
+  class="rounded-lg overflow-hidden app-shadow dark:!shadow-none"
+>
+  <img
+    [ngSrc]="project_.images[0]"
+    [alt]="project_.name"
+    [title]="project_.name"
+    priority
+    height="300"
+    width="400"
+    class="w-full"
+  />
+  <div class="py-5 px-2">
+    <!-- Technologies -->
+    @for (technology of project_.technologies; track technology) {
+      <span [class]="technologyClasses[technology]">
+        {{ technology }}
+      </span>
+    }
+    <!-- Title project -->
+    <h3
+      class="text-2xl tracking-tight font-bold my-2 text-gray-800 dark:text-gray-200"
+    >
+      {{ project_.name }}
+    </h3>
+    <!-- Description -->
+    <p class="text-gray-500 dark:text-gray-400 mt-2 text-base font-normal">
+      {{ project_.description | truncate: 90 }}
+    </p>
+    <!--buttons-->
+    <div class="flex items-center mt-6 gap-3">
+      <button
+        class="py-2 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        [routerLink]="['/projects', project_.slug]"
+      >
+        {{ "projects.seeMore" | translate }}
+      </button>
+      <a
+        [href]="project_.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex justify-center items-center gap-2 py-2 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-gray-100 bg-white hover:bg-gray-100 hover:text-primary-600 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:focus:ring-gray-800 dark:hover:text-white dark:hover:bg-gray-700 cursor-pointer"
+      >
+        <svg
+          class="h-5 w-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
+          />
+        </svg>
+        {{ "projects.preview" | translate }}
+      </a>
+    </div>
+  </div>
+</div>
