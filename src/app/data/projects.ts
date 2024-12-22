@@ -51,6 +51,51 @@ export const projects_en: IProject[] = [
     github_url: 'https://github.com/gregoarcenta/task-manager',
     technologies: [Technology.ANGULAR, Technology.NEST, Technology.TS],
   },
+  {
+    id: '4',
+    name: 'Task Manager',
+    slug: 'task-manager',
+    description:
+      'A web tool for managing tasks and projects. Built with Angular and NestJS, this application combines a dynamic frontend with a robust backend. It includes authentication and database management.',
+    type: 'fullstack',
+    images: [
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/mail-management-system-dark.jpg',
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/agency-landing-page-dark.jpg',
+    ],
+    url: 'https://arcentales.vercel.app',
+    github_url: 'https://github.com/gregoarcenta/task-manager',
+    technologies: [Technology.ANGULAR, Technology.NEST, Technology.TS],
+  },
+  {
+    id: '5',
+    name: 'Task Manager',
+    slug: 'task-manager',
+    description:
+      'A web tool for managing tasks and projects. Built with Angular and NestJS, this application combines a dynamic frontend with a robust backend. It includes authentication and database management.',
+    type: 'fullstack',
+    images: [
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/mail-management-system-dark.jpg',
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/agency-landing-page-dark.jpg',
+    ],
+    url: 'https://arcentales.vercel.app',
+    github_url: 'https://github.com/gregoarcenta/task-manager',
+    technologies: [Technology.ANGULAR, Technology.NEST, Technology.TS],
+  },
+  {
+    id: '6',
+    name: 'Task Manager 6',
+    slug: 'task-manager',
+    description:
+      'A web tool for managing tasks and projects. Built with Angular and NestJS, this application combines a dynamic frontend with a robust backend. It includes authentication and database management.',
+    type: 'fullstack',
+    images: [
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/mail-management-system-dark.jpg',
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/agency-landing-page-dark.jpg',
+    ],
+    url: 'https://arcentales.vercel.app',
+    github_url: 'https://github.com/gregoarcenta/task-manager',
+    technologies: [Technology.ANGULAR, Technology.NEST, Technology.TS],
+  },
 ];
 
 export const projects_es: IProject[] = [
@@ -91,6 +136,51 @@ export const projects_es: IProject[] = [
   },
   {
     id: '3',
+    name: 'Gestión de tareas',
+    slug: 'task-manager',
+    description:
+      'Una herramienta web para gestionar tareas y proyectos. Creada con Angular y NestJS, esta aplicación combina un frontend dinámico con un backend robusto. Incluye autenticación y manejo de base de datos.',
+    type: 'fullstack',
+    images: [
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/mail-management-system-dark.jpg',
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/agency-landing-page-dark.jpg',
+    ],
+    url: 'https://arcentales.vercel.app',
+    github_url: 'https://github.com/gregoarcenta/task-manager',
+    technologies: [Technology.ANGULAR, Technology.NEST, Technology.TS],
+  },
+  {
+    id: '4',
+    name: 'Gestión de tareas',
+    slug: 'task-manager',
+    description:
+      'Una herramienta web para gestionar tareas y proyectos. Creada con Angular y NestJS, esta aplicación combina un frontend dinámico con un backend robusto. Incluye autenticación y manejo de base de datos.',
+    type: 'fullstack',
+    images: [
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/mail-management-system-dark.jpg',
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/agency-landing-page-dark.jpg',
+    ],
+    url: 'https://arcentales.vercel.app',
+    github_url: 'https://github.com/gregoarcenta/task-manager',
+    technologies: [Technology.ANGULAR, Technology.NEST, Technology.TS],
+  },
+  {
+    id: '5',
+    name: 'Gestión de tareas',
+    slug: 'task-manager',
+    description:
+      'Una herramienta web para gestionar tareas y proyectos. Creada con Angular y NestJS, esta aplicación combina un frontend dinámico con un backend robusto. Incluye autenticación y manejo de base de datos.',
+    type: 'fullstack',
+    images: [
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/mail-management-system-dark.jpg',
+      'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/case-study/agency-landing-page-dark.jpg',
+    ],
+    url: 'https://arcentales.vercel.app',
+    github_url: 'https://github.com/gregoarcenta/task-manager',
+    technologies: [Technology.ANGULAR, Technology.NEST, Technology.TS],
+  },
+  {
+    id: '6',
     name: 'Gestión de tareas',
     slug: 'task-manager',
     description:

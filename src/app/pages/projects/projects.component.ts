@@ -2,17 +2,19 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   inject,
   signal,
+  viewChildren,
 } from '@angular/core';
 import { initTooltips } from 'flowbite';
-import { IProject, technologyClasses } from '@/interfaces/project';
 import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { TruncatePipe } from '@/pipes/truncate.pipe';
-import { projects_en, projects_es } from '@/data/projects';
 import { Lang } from '@/services/language.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { IProject, technologyClasses } from '@/interfaces/project';
+import { projects_en, projects_es } from '@/data/projects';
 
 @Component({
   selector: 'app-projects',
@@ -28,7 +30,11 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   `,
 })
 export default class ProjectsComponent implements AfterViewInit {
+  private projectElements = viewChildren<ElementRef>('project');
+
   public projects = signal<IProject[]>([]);
+  public visibleProjects = signal<number>(3);
+  public onLoadProjects = signal<boolean>(false);
 
   protected readonly technologyClasses = technologyClasses;
 
@@ -56,5 +62,29 @@ export default class ProjectsComponent implements AfterViewInit {
     } else {
       this.projects.set(projects_es);
     }
+  }
+
+  loadMoreProjects() {
+    this.onLoadProjects.set(true);
+    setTimeout(() => {
+      this.visibleProjects.update((lastValue) => lastValue + 3);
+      this.scrollTLastElement();
+      this.onLoadProjects.set(false);
+    }, 1000);
+  }
+
+  scrollTLastElement() {
+    setTimeout(() => {
+      const newProjectIndex = this.visibleProjects();
+      const lastVisibleElement = this.projectElements()[newProjectIndex - 1];
+
+      if (lastVisibleElement) {
+        lastVisibleElement.nativeElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+      this.onLoadProjects.set(false);
+    }, 100);
   }
 }
