@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   inject,
@@ -6,24 +7,32 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Lang } from '@/services/language.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { projects_en, projects_es } from '@/data/projects';
-import { IProject } from '@/interfaces/project';
+import { IProject, technologyClasses } from '@/interfaces/project';
 import { ProjectNotFoundComponent } from '@/components/projects/project-not-found/project-not-found.component';
 import { LoaderComponent } from '@/components/loader/loader.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NgOptimizedImage } from '@angular/common';
+import { initCarousels } from 'flowbite';
 
 @Component({
   selector: 'app-project',
-  imports: [ProjectNotFoundComponent, LoaderComponent],
+  imports: [
+    ProjectNotFoundComponent,
+    LoaderComponent,
+    NgOptimizedImage,
+    TranslatePipe,
+  ],
   templateUrl: './project.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ProjectComponent {
+export default class ProjectComponent implements AfterViewInit {
   private readonly route = inject(ActivatedRoute);
   private readonly translateService = inject(TranslateService);
 
   public project = signal<IProject | null>({} as IProject);
+  protected readonly technologyClasses = technologyClasses;
   public slug: string;
 
   constructor() {
@@ -40,6 +49,10 @@ export default class ProjectComponent {
         const project = this.findProject(this.slug, lang as Lang)!;
         this.project.set(project);
       });
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => initCarousels(), 100);
   }
 
   findProject(slug: string, lang: Lang): IProject | undefined {

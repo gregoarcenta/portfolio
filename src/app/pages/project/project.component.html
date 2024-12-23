@@ -10,78 +10,275 @@
 
 @if (project()?.id) {
   @let project_ = project()!;
-  <div class="py-12 px-4 mx-auto max-w-screen-xl">
+
+  <!------------------------------------------------------------------------------------->
+
+  <div class="py-12 px-4 mx-auto max-w-screen-xl z-10">
     <!-- Header Section -->
-    <div class="text-center mb-12">
-      <!-- Display the title dynamically from the project() data -->
+    <div class="text-center mb-8">
+      <!-- Title -->
       <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white">
         {{ project_.name }}
       </h2>
-      <!-- Display the project description dynamically -->
-      <p class="mt-4 text-lg text-gray-500 dark:text-gray-400">
-        {{ project_.description }}
-      </p>
     </div>
 
     <!-- Image and Details Section -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- Project Image -->
-      <div>
-        <!-- Display the first image dynamically from the project data -->
-        <img
-          src="{{ project_.images[0] }}"
-          alt="{{ project_.name }} Preview"
-          class="rounded-lg shadow-lg w-full"
-        />
+      <div id="default-carousel" class="relative w-full" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+          <!-- Item -->
+          @for (image of project_.images; track $index) {
+            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+              <img
+                [ngSrc]="image"
+                [alt]="'image ' + project_.name"
+                [title]="'image ' + project_.name"
+                priority
+                height="500"
+                width="800"
+                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              />
+            </div>
+          }
+        </div>
+        <!-- Slider indicators -->
+        <div
+          class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
+        >
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="true"
+            aria-label="Slide 1"
+            data-carousel-slide-to="0"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 2"
+            data-carousel-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 3"
+            data-carousel-slide-to="2"
+          ></button>
+        </div>
+        <!-- Slider controls -->
+        <button
+          type="button"
+          class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-prev
+        >
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+          >
+            <svg
+              class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 1 1 5l4 4"
+              />
+            </svg>
+            <span class="sr-only">Previous</span>
+          </span>
+        </button>
+        <button
+          type="button"
+          class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-next
+        >
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+          >
+            <svg
+              class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+            <span class="sr-only">Next</span>
+          </span>
+        </button>
       </div>
 
       <!-- Project Details -->
       <div class="flex flex-col justify-center">
         <!-- Display a secondary title for details -->
-        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-          Learn More About {{ project_.name }}
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-primary-500 mb-4">
+          {{ "projects.learnMore" | translate }} {{ project_.name }}
         </h3>
+
         <!-- Provide a detailed description or functionality overview -->
         <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
-          {{ project_.description }} This project leverages modern frameworks
-          and tools to deliver a high-quality user experience.
+          {{ project_.description }}
         </p>
 
         <!-- Technologies Used -->
-        <div class="flex flex-wrap items-center gap-4 mb-6">
-          <span class="text-sm font-medium text-gray-600 dark:text-gray-400">
-            Technologies used:
+        <div class="flex flex-wrap items-center mb-6">
+          <span
+            class="text-sm font-medium text-gray-600 dark:text-gray-400 me-2"
+          >
+            {{ "projects.technologiesUsed" | translate }}
           </span>
           <!-- Loop through the technologies array to display each technology dynamically -->
-          @for (tech of project_.technologies; track $index) {
-            <span
-              class="h-8 w-8 bg-gray-100 dark:bg-gray-700 flex items-center justify-center rounded-full text-sm font-medium"
-            >
-              {{ tech }}
+          <!-- Technologies -->
+          @for (technology of project_.technologies; track technology) {
+            <span [class]="technologyClasses[technology]">
+              {{ technology }}
             </span>
           }
         </div>
 
+        @if (project_.backend_url) {
+          <!-- Technologies Used -->
+          <div class="flex flex-wrap items-center mb-6">
+            <span
+              class="text-sm font-medium text-gray-600 dark:text-gray-400 me-2"
+            >
+              {{ "projects.apiUsed" | translate }}
+            </span>
+            <a
+              [href]="project_.backend_url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-600 dark:text-gray-400 text-sm hover:underline"
+            >
+              {{ project_.backend_url }}
+            </a>
+          </div>
+        }
+
         <!-- Buttons -->
-        <div class="flex gap-4">
+        <div class="flex flex-col sm:flex-row gap-4">
           <!-- Link to the live website dynamically -->
           <a
             [href]="project_.url"
             target="_blank"
-            class="py-2 px-6 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium text-center"
+            rel="noopener noreferrer"
+            class="flex justify-center items-center gap-2 py-2 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
           >
-            See Live Website
+            <svg
+              class="h-5 w-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
+              />
+            </svg>
+            {{ "projects.seeLiveWebsite" | translate }}
           </a>
           <!-- Link to the GitHub repository dynamically -->
           <a
             [href]="project_.github_url"
             target="_blank"
-            class="py-2 px-6 text-gray-900 border border-gray-300 hover:bg-gray-100 rounded-lg font-medium text-center dark:text-white dark:border-gray-600 dark:hover:bg-gray-700"
+            rel="noopener noreferrer"
+            class="flex justify-center items-center gap-2 py-2 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-gray-100 bg-white hover:bg-gray-100 hover:text-primary-600 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:focus:ring-gray-800 dark:hover:text-white dark:hover:bg-gray-700 cursor-pointer"
           >
-            View GitHub Repository
+            <svg
+              class="h-5 w-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
+              />
+            </svg>
+            {{ "projects.viewGitHubRepository" | translate }}
           </a>
         </div>
       </div>
     </div>
+
+    <section class="mt-16 bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
+      <h2
+        class="mb-8 text-2xl 2xl:text-3xl font-bold text-gray-900 dark:text-gray-100"
+      >
+        {{ "projects.highlightedFunctions" | translate }}
+      </h2>
+      <div class="grid grid-cols-3 gap-8">
+        <!-- list -->
+        <ul
+          class="col-span-3 lg:col-span-2 text-gray-500 list-inside dark:text-gray-400 grid sm:grid-cols-2 gap-4 lg:gap-8"
+        >
+          @for (featuredFunctions of project_.featuredFunctions; track $index) {
+            <li
+              class="p-8 text-center bg-gray-200 dark:bg-gray-800 flex items-center rounded-lg font-bold"
+            >
+              {{ featuredFunctions }}
+            </li>
+          }
+        </ul>
+
+        <!-- Mobile device -->
+        <div
+          class="col-span-3 lg:col-span-1 relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]"
+        >
+          <div
+            class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"
+          ></div>
+          <div
+            class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"
+          ></div>
+          <div
+            class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"
+          ></div>
+          <div
+            class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"
+          ></div>
+          <div
+            class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800"
+          >
+            <img
+              [ngSrc]="project_.image_mobile"
+              [alt]="project_.name"
+              [title]="project_.name"
+              class="w-[272px] h-[572px]"
+              height="272"
+              width="572"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 }

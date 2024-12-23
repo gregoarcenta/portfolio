@@ -94,6 +94,12 @@
     "description": "Aquí verás algunos de mis proyectos favoritos, en los que he trabajado con empeño y creatividad.",
     "seeMore": "Ver más",
     "seeMoreProjects": "Ver más proyectos",
-    "preview": "Previsualizar Proyecto"
+    "preview": "Previsualizar Proyecto",
+    "learnMore": "Aprender más sobre",
+    "technologiesUsed": "Tecnologías utilizadas:",
+    "apiUsed": "API utilizada:",
+    "seeLiveWebsite": "Ver Sitio Web",
+    "viewGitHubRepository": "Ver Repositorio en GitHub",
+    "highlightedFunctions": "Funciones Destacadas"
   }
 }

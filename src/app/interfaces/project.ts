@@ -18,13 +18,16 @@ export enum Technology {
 export interface IProject {
   id: string;
   images: string[];
+  image_mobile: string;
   name: string;
   slug: string;
   description: string;
   type: ProjectType;
   technologies: Technology[];
+  featuredFunctions: string[];
   url: string;
   github_url: string;
+  backend_url: string | null;
 }
 
 export const technologyClasses: Record<Technology, string> = {

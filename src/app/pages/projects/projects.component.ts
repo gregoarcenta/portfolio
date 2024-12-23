@@ -69,7 +69,7 @@ export default class ProjectsComponent implements AfterViewInit {
   scrollTLastElement() {
     setTimeout(() => {
       const newProjectIndex = this.visibleProjects();
-      const lastVisibleElement = this.projectElements()[newProjectIndex - 1];
+      const lastVisibleElement = this.projectElements()[newProjectIndex - 3];
       if (lastVisibleElement) {
         lastVisibleElement.nativeElement.scrollIntoView({
           behavior: 'smooth',
