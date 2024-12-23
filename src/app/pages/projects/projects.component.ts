@@ -15,6 +15,7 @@ import { IProject } from '@/interfaces/project';
 import { projects_en, projects_es } from '@/data/projects';
 import { LoaderComponent } from '@/components/loader/loader.component';
 import { ProjectCardComponent } from '@/components/projects/project-card/project-card.component';
+import { BannerService } from '@/services/banner.service';
 
 @Component({
   selector: 'app-projects',
@@ -32,6 +33,7 @@ export default class ProjectsComponent implements AfterViewInit {
   public onLoadProjects = signal<boolean>(false);
 
   private readonly translateService = inject(TranslateService);
+  private readonly bannerService = inject(BannerService);
 
   constructor() {
     const currentLang = this.translateService.currentLang as Lang;
@@ -47,6 +49,7 @@ export default class ProjectsComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => initTooltips(), 500);
+    setTimeout(() => this.bannerService.showBanner(), 2000);
   }
 
   setProjects(lang: Lang) {

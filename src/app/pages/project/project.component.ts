@@ -15,6 +15,7 @@ import { LoaderComponent } from '@/components/loader/loader.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgOptimizedImage } from '@angular/common';
 import { initCarousels } from 'flowbite';
+import { BannerService } from '@/services/banner.service';
 
 @Component({
   selector: 'app-project',
@@ -30,6 +31,7 @@ import { initCarousels } from 'flowbite';
 export default class ProjectComponent implements AfterViewInit {
   private readonly route = inject(ActivatedRoute);
   private readonly translateService = inject(TranslateService);
+  private readonly bannerService = inject(BannerService);
 
   public project = signal<IProject | null>({} as IProject);
   protected readonly technologyClasses = technologyClasses;
@@ -53,6 +55,7 @@ export default class ProjectComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => initCarousels(), 100);
+    setTimeout(() => this.bannerService.showBanner(), 2000);
   }
 
   findProject(slug: string, lang: Lang): IProject | undefined {

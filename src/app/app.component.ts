@@ -8,6 +8,9 @@ import { ThemeService } from '@/services/theme.service';
 import { ScrollTopBtnComponent } from '@/components/home/scroll-top-btn/scroll-top-btn.component';
 import { TranslatePipe } from '@ngx-translate/core';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { BannerComponent } from '@/components/banner/banner.component';
+import { BannerService } from '@/services/banner.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +20,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
     NavbarComponent,
     ScrollTopBtnComponent,
     TranslatePipe,
+    BannerComponent,
+    AsyncPipe,
   ],
   animations: [
     trigger('fadeInOpacity', [
@@ -34,6 +39,9 @@ import { animate, style, transition, trigger } from '@angular/animations';
   ],
   template: `
     <div class="bg-white dark:bg-gray-900 min-h-dvh flex flex-col">
+      @if (showBanner$ | async) {
+        <app-banner />
+      }
       <app-navbar @fadeInOpacity />
       <main @fadeIn class="container mx-auto flex-1" style="margin-top: 76px;">
         <router-outlet />
@@ -57,6 +65,9 @@ import { animate, style, transition, trigger } from '@angular/animations';
 export class AppComponent implements OnInit {
   private readonly languageService = inject(LanguageService);
   private readonly themeService = inject(ThemeService);
+  private readonly bannerService = inject(BannerService);
+
+  public showBanner$ = this.bannerService.show$;
 
   ngOnInit(): void {
     // Flowbite init
