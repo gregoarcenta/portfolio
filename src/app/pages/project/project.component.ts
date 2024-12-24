@@ -19,6 +19,7 @@ import { ProjectSliderComponent } from '@/components/projects/project-slider/pro
 import { ProjectTechnologiesComponent } from '@/components/projects/project-technologies/project-technologies.component';
 import { ProjectMobileMockupComponent } from '@/components/projects/project-mobile-mockup/project-mobile-mockup.component';
 import { FeaturedFunctionsComponent } from '@/components/projects/featured-functions/featured-functions.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-project',
@@ -38,6 +39,7 @@ export default class ProjectComponent implements AfterViewInit {
   private readonly route = inject(ActivatedRoute);
   private readonly translateService = inject(TranslateService);
   private readonly bannerService = inject(BannerService);
+  private readonly title = inject(Title);
 
   public project = signal<IProject | null>({} as IProject);
   public slug: string;
@@ -48,12 +50,14 @@ export default class ProjectComponent implements AfterViewInit {
 
     const project = this.findProject(this.slug, currentLang) ?? null;
 
+    this.setTitle(project?.name);
     this.project.set(project);
 
     this.translateService.onLangChange
       .pipe(takeUntilDestroyed())
       .subscribe(({ lang }) => {
         const project = this.findProject(this.slug, lang as Lang)!;
+        this.setTitle(project.name);
         this.project.set(project);
       });
   }
@@ -68,5 +72,9 @@ export default class ProjectComponent implements AfterViewInit {
       return projects_es.find((project) => project.slug === slug);
     }
     return projects_en.find((project) => project.slug === slug);
+  }
+
+  setTitle(title = 'Unknown') {
+    this.title.setTitle('Project: ' + title);
   }
 }

@@ -18,7 +18,6 @@ export const routes: Routes = [
   },
   {
     path: 'projects/:slug',
-    title: 'Projects',
     loadComponent: () => import('@/pages/project/project.component'),
   },
   {
