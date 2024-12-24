@@ -5,10 +5,17 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { TruncatePipe } from '@/pipes/truncate.pipe';
 import { RouterLink } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { ProjectTechnologiesComponent } from '@/components/projects/project-technologies/project-technologies.component';
 
 @Component({
   selector: 'app-project-card',
-  imports: [NgOptimizedImage, TranslatePipe, TruncatePipe, RouterLink],
+  imports: [
+    NgOptimizedImage,
+    TranslatePipe,
+    TruncatePipe,
+    RouterLink,
+    ProjectTechnologiesComponent,
+  ],
   templateUrl: './project-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [

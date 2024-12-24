@@ -1,0 +1,14 @@
+<ul
+  class="h-full md:py-6 list-inside text-gray-500 dark:text-gray-400 grid sm:grid-cols-2 gap-4 lg:gap-8"
+>
+  @for (featuredFunctions of featuredFunctions(); track $index) {
+    <li
+      class="p-8 text-center bg-gray-200 dark:bg-gray-800 flex flex-col justify-center items-center rounded-lg font-bold shadow transform transition-transform duration-300 hover:scale-105 animate-fadeIn cursor-pointer border-t-2 border-y-yellow-500"
+    >
+      {{ featuredFunctions }}
+      <hr
+        class="w-20 h-1 mx-auto my-4 bg-gray-300 border-0 rounded md:my-4 dark:bg-gray-700"
+      />
+    </li>
+  }
+</ul>
