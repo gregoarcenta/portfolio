@@ -1,6 +1,10 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { IProject, technologyClasses } from '@/interfaces/project';
-import { NgOptimizedImage } from '@angular/common';
+import { IProject } from '@/interfaces/project';
+import {
+  IMAGE_LOADER,
+  ImageLoaderConfig,
+  NgOptimizedImage,
+} from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TruncatePipe } from '@/pipes/truncate.pipe';
 import { RouterLink } from '@angular/router';
@@ -15,6 +19,14 @@ import { ProjectTechnologiesComponent } from '@/components/projects/project-tech
     TruncatePipe,
     RouterLink,
     ProjectTechnologiesComponent,
+  ],
+  providers: [
+    {
+      provide: IMAGE_LOADER,
+      useValue: (config: ImageLoaderConfig) => {
+        return `https://res.cloudinary.com/dy7luvgd5/image/upload/v1735063243/portfolio/${config.src}`;
+      },
+    },
   ],
   templateUrl: './project-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -42,8 +54,6 @@ import { ProjectTechnologiesComponent } from '@/components/projects/project-tech
   `,
 })
 export class ProjectCardComponent {
-  protected readonly technologyClasses = technologyClasses;
-
   public project = input.required<IProject>();
   public delay = input<number>(0);
 }

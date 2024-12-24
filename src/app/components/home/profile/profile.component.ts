@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { IMAGE_CONFIG, NgOptimizedImage } from '@angular/common';
+import {
+  IMAGE_LOADER,
+  ImageLoaderConfig,
+  NgOptimizedImage,
+} from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -9,9 +13,9 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './profile.component.html',
   providers: [
     {
-      provide: IMAGE_CONFIG,
-      useValue: {
-        placeholderResolution: 40,
+      provide: IMAGE_LOADER,
+      useValue: (config: ImageLoaderConfig) => {
+        return `https://res.cloudinary.com/dy7luvgd5/image/upload/v1735063243/portfolio/${config.src}`;
       },
     },
   ],
@@ -25,7 +29,7 @@ import { TranslatePipe } from '@ngx-translate/core';
   `,
 })
 export class ProfileComponent {
-  public imageProfile = signal('/assets/images/profile.jpg');
+  public imageProfile = signal('profile.jpg');
 
   openCV() {
     const pdfUrl = 'assets/documents/cv.pdf';
