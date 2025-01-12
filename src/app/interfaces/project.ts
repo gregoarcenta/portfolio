@@ -9,6 +9,7 @@ export enum Technology {
   TS = 'TypeScript',
   REACT = 'React',
   ANGULAR = 'Angular',
+  SOCKETIO = 'Socket.IO',
   NODE = 'Node Js',
   NEST = 'Nest Js',
   JAVA = 'Java',
@@ -47,6 +48,8 @@ export const technologyClasses: Record<Technology, string> = {
     'bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300',
   [Technology.ANGULAR]:
     'bg-pink-100 text-pink-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-pink-900 dark:text-pink-300',
+  [Technology.SOCKETIO]:
+    'bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300',
   [Technology.NODE]:
     'bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300',
   [Technology.NEST]:
