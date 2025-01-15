@@ -8,9 +8,7 @@ import { ThemeService } from '@/services/theme.service';
 import { ScrollTopBtnComponent } from '@/components/home/scroll-top-btn/scroll-top-btn.component';
 import { TranslatePipe } from '@ngx-translate/core';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { BannerComponent } from '@/components/banner/banner.component';
 import { BannerService } from '@/services/banner.service';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -20,8 +18,6 @@ import { AsyncPipe } from '@angular/common';
     NavbarComponent,
     ScrollTopBtnComponent,
     TranslatePipe,
-    BannerComponent,
-    AsyncPipe,
   ],
   animations: [
     trigger('fadeInOpacity', [
@@ -39,9 +35,9 @@ import { AsyncPipe } from '@angular/common';
   ],
   template: `
     <div class="bg-white dark:bg-gray-900 min-h-dvh flex flex-col">
-      @if (showBanner$ | async) {
-        <app-banner />
-      }
+      <!--      @if (showBanner$ | async) {-->
+      <!--        <app-banner />-->
+      <!--      }-->
       <app-navbar @fadeInOpacity />
       <main @fadeIn class="container mx-auto flex-1" style="margin-top: 76px;">
         <router-outlet />
