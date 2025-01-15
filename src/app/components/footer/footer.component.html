@@ -71,7 +71,7 @@
 
   <footer
     class="text-sm w-full text-center text-gray-800 font-bold self-center xl:self-end"
-    [ngClass]="{ 'xl:text-start': isHome }"
+    [class.xl:text-start]="isHome"
   >
     {{ "footer.copyright" | translate }}
   </footer>
