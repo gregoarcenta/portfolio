@@ -19,7 +19,7 @@ export enum Technology {
 export interface IProject {
   id: string;
   images: string[];
-  image_mobile: string;
+  image_mobile: string | null;
   name: string;
   slug: string;
   description: string;

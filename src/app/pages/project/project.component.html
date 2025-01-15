@@ -96,7 +96,11 @@
                 d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
               />
             </svg>
-            {{ "projects.preview" | translate }}
+            @if (project_.type === "backend") {
+              {{ "projects.previewBackend" | translate }}
+            } @else {
+              {{ "projects.preview" | translate }}
+            }
           </a>
           <!-- Link to the GitHub repository dynamically -->
           <a
@@ -138,16 +142,18 @@
 
       <div class="grid grid-cols-3 gap-8">
         <!-- list -->
-        <div class="col-span-3 lg:col-span-2">
+        <div class="col-span-3" [class.lg:col-span-2]="!!project_.image_mobile">
           <app-featured-functions
             [featuredFunctions]="project_.featuredFunctions"
           />
         </div>
 
         <!-- Mobile device -->
-        <div class="col-span-3 lg:col-span-1">
-          <app-project-mobile-mockup [image]="project_.image_mobile" />
-        </div>
+        @if (project_.image_mobile) {
+          <div class="col-span-3 lg:col-span-1">
+            <app-project-mobile-mockup [image]="project_.image_mobile" />
+          </div>
+        }
       </div>
     </section>
   </div>
