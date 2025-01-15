@@ -1,81 +1,134 @@
-<div class="py-6 lg:py-12 px-4 mx-auto max-w-screen-md">
-  <h2
-    class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"
-  >
-    {{ "contact.title" | translate }}
-  </h2>
-  <p
-    class="mb-8 tracking-tight lg:mb-10 text-center text-gray-500 dark:text-gray-400 sm:text-xl"
-  >
-    {{ "contact.description" | translate }} <span>✉</span>️
-  </p>
-  <form
-    #form
-    action="https://getform.io/f/bmddlxka"
-    method="POST"
-    class="space-y-6"
-  >
-    <!--email-->
-    <div>
-      <label
-        for="email"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+@if (sendSuccess()) {
+  <div class="flex flex-col items-center justify-center mt-32">
+    <div class="p-6 rounded-lg shadow-md dark:shadow-none text-center">
+      <div class="mb-4 flex justify-center">
+        <svg
+          class="w-28 h-28 text-green-500"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12 2c-.791 0-1.55.314-2.11.874l-.893.893a.985.985 0 0 1-.696.288H7.04A2.984 2.984 0 0 0 4.055 7.04v1.262a.986.986 0 0 1-.288.696l-.893.893a2.984 2.984 0 0 0 0 4.22l.893.893a.985.985 0 0 1 .288.696v1.262a2.984 2.984 0 0 0 2.984 2.984h1.262c.261 0 .512.104.696.288l.893.893a2.984 2.984 0 0 0 4.22 0l.893-.893a.985.985 0 0 1 .696-.288h1.262a2.984 2.984 0 0 0 2.984-2.984V15.7c0-.261.104-.512.288-.696l.893-.893a2.984 2.984 0 0 0 0-4.22l-.893-.893a.985.985 0 0 1-.288-.696V7.04a2.984 2.984 0 0 0-2.984-2.984h-1.262a.985.985 0 0 1-.696-.288l-.893-.893A2.984 2.984 0 0 0 12 2Zm3.683 7.73a1 1 0 1 0-1.414-1.413l-4.253 4.253-1.277-1.277a1 1 0 0 0-1.415 1.414l1.985 1.984a1 1 0 0 0 1.414 0l4.96-4.96Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+        {{ "contact.thankYou" | translate }}
+      </h2>
+      <p class="mb-4 text-gray-900 dark:text-white">
+        {{ "contact.messageSent" | translate }}
+      </p>
+      <button
+        (click)="goHome()"
+        class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
       >
-        {{ "contact.emailLabel" | translate }}
-      </label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-        placeholder="{{ 'contact.emailPlaceholder' | translate }}"
-        required
-      />
+        {{ "contact.goHome" | translate }}
+      </button>
     </div>
-    <!--subject-->
-    <div>
-      <label
-        for="subject"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-      >
-        {{ "contact.subjectLabel" | translate }}
-      </label>
-      <input
-        type="text"
-        id="subject"
-        name="subject"
-        class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-        placeholder="{{ 'contact.subjectPlaceholder' | translate }}"
-        minlength="5"
-        maxlength="100"
-        required
-      />
-    </div>
-    <!--message-->
-    <div class="sm:col-span-2">
-      <label
-        for="message"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-      >
-        {{ "contact.messageLabel" | translate }}
-      </label>
-      <textarea
-        id="message"
-        name="message"
-        rows="6"
-        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-        placeholder="{{ 'contact.messagePlaceholder' | translate }}"
-        minlength="10"
-        maxlength="1000"
-        required
-      ></textarea>
-    </div>
-    <!--btn submit-->
-    <button
-      type="submit"
-      class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+  </div>
+} @else {
+  <div class="py-6 lg:py-12 px-4 mx-auto max-w-screen-md">
+    <h2
+      class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"
     >
-      {{ "contact.submitButton" | translate }}
-    </button>
-  </form>
-</div>
+      {{ "contact.title" | translate }}
+    </h2>
+    <p
+      class="mb-8 tracking-tight lg:mb-10 text-center text-gray-500 dark:text-gray-400 sm:text-xl"
+    >
+      {{ "contact.description" | translate }} <span>✉</span>️
+    </p>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
+      <!--email-->
+      <div>
+        <label
+          for="email"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >
+          {{ "contact.emailLabel" | translate }}
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          formControlName="email"
+          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+          placeholder="{{ 'contact.emailPlaceholder' | translate }}"
+          required
+        />
+        @if (isInvalid("email")) {
+          <span class="text-red-500 text-sm">{{ getEmailError | async }}</span>
+        }
+      </div>
+      <!--subject-->
+      <div>
+        <label
+          for="subject"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >
+          {{ "contact.subjectLabel" | translate }}
+        </label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          formControlName="subject"
+          class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+          placeholder="{{ 'contact.subjectPlaceholder' | translate }}"
+          minlength="6"
+          maxlength="100"
+          required
+        />
+        @if (isInvalid("subject")) {
+          <span class="text-red-500 text-sm">{{
+            getSubjectError | async
+          }}</span>
+        }
+      </div>
+      <!--message-->
+      <div class="sm:col-span-2">
+        <label
+          for="message"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+        >
+          {{ "contact.messageLabel" | translate }}
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          formControlName="message"
+          rows="6"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+          placeholder="{{ 'contact.messagePlaceholder' | translate }}"
+          minlength="10"
+          maxlength="1000"
+          required
+        ></textarea>
+        @if (isInvalid("message")) {
+          <span class="text-red-500 text-sm">{{
+            getMessageError | async
+          }}</span>
+        }
+      </div>
+      <!--btn submit-->
+      <button
+        type="submit"
+        class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        [disabled]="loading()"
+      >
+        <div class="flex items-center gap-2">
+          {{ "contact.submitButton" | translate }}
+          @if (loading()) {
+            <app-loader />
+          }
+        </div>
+      </button>
+    </form>
+  </div>
+}

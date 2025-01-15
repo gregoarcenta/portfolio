@@ -84,11 +84,22 @@
     "description": "Do you have a technical issue? Want to collaborate on a project or need more details about my services? Feel free to reach out!",
     "emailLabel": "Your email address",
     "emailPlaceholder": "e.g., yourname@example.com",
+    "emailError": "Please enter a valid email address.",
+    "emailErrorRequired": "This field is required. Please enter your email address.",
     "subjectLabel": "Subject",
     "subjectPlaceholder": "What would you like to discuss?",
+    "subjectErrorRequired": "This field is required. Please enter a subject.",
+    "subjectErrorMinLength": "The subject must be at least 6 characters long.",
+    "subjectErrorMaxLength": "The subject cannot exceed 100 characters.",
     "messageLabel": "Your message",
     "messagePlaceholder": "Write your message here...",
-    "submitButton": "Send Message"
+    "messageErrorRequired": "This field is required. Please enter your message.",
+    "messageErrorMinLength": "The message must be at least 10 characters long.",
+    "messageErrorMaxLength": "The message cannot exceed 1000 characters.",
+    "submitButton": "Send Message",
+    "thankYou": "Thank you!",
+    "messageSent": "Your message has been successfully sent.",
+    "goHome": "Go to Home"
   },
   "projects": {
     "title": "My Projects",

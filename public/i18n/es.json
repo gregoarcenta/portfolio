@@ -84,11 +84,22 @@
     "description": "¿Tienes un problema técnico? ¿Quieres colaborar en un proyecto o necesitas más detalles sobre mis servicios? ¡No dudes en escribirme!",
     "emailLabel": "Tu correo electrónico",
     "emailPlaceholder": "ejemplo: tunombre@correo.com",
+    "emailError": "Por favor, ingrese un correo electrónico válido",
+    "emailErrorRequired": "Este campo es obligatorio. Por favor, ingrese su correo electrónico",
     "subjectLabel": "Asunto",
     "subjectPlaceholder": "¿Sobre qué te gustaría hablar?",
+    "subjectErrorRequired": "Este campo es obligatorio. Por favor, ingrese un asunto",
+    "subjectErrorMinLength": "El asunto debe tener al menos 6 caracteres",
+    "subjectErrorMaxLength": "El asunto no puede tener más de 100 caracteres",
     "messageLabel": "Tu mensaje",
     "messagePlaceholder": "Escribe tu mensaje aquí...",
-    "submitButton": "Enviar mensaje"
+    "messageErrorRequired": "Este campo es obligatorio. Por favor, ingrese su mensaje",
+    "messageErrorMinLength": "El mensaje debe tener al menos 10 caracteres",
+    "messageErrorMaxLength": "El mensaje no puede tener más de 1000 caracteres",
+    "submitButton": "Enviar mensaje",
+    "thankYou": "¡Gracias!",
+    "messageSent": "Su mensaje ha sido enviado exitosamente.",
+    "goHome": "Volver al Inicio"
   },
   "projects": {
     "title": "Mis Proyectos",
