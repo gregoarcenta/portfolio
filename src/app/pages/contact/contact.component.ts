@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnInit,
+  viewChild,
+} from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -7,4 +13,14 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './contact.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ContactComponent {}
+export default class ContactComponent implements OnInit {
+  private contactForm = viewChild<ElementRef<HTMLFormElement>>('form');
+
+  ngOnInit(): void {
+    this.resetForm();
+  }
+
+  resetForm(): void {
+    this.contactForm()?.nativeElement.reset();
+  }
+}
