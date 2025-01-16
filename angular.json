@@ -28,6 +28,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": [
+              "copy-to-clipboard",
+              "toastify-js"
+            ],
             "outputPath": "dist/portfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -51,7 +55,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
+                  "maximumWarning": "600kB",
                   "maximumError": "1MB"
                 },
                 {
