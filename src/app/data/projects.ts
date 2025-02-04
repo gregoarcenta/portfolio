@@ -56,6 +56,34 @@ export const projects_en: IProject[] = [
       'Configured and optimized PostgreSQL database',
     ],
   },
+  {
+    id: '3',
+    name: 'Teslo Shop Frontend',
+    slug: 'teslo-shop-frontend',
+    description:
+      'Teslo Shop Frontend is a modern and efficient e-commerce interface built with Angular and Tailwind CSS. It provides a seamless shopping experience with product browsing, a dynamic shopping cart, secure authentication, and smooth order management. The UI is fully responsive and optimized for performance.',
+    type: 'frontend',
+    images: [
+      'h9snoeani0xtx0vnmkkj',
+      'pscwfzhppqd2hj4xop6y',
+      'ctcipmbagl0hds9lnh7f',
+      'mv1vmmib7ouphcmfpy3c',
+      'lralgdxxpgooy4e9onpa',
+    ],
+    image_mobile: 'bih7ox2pjpq8iunmzlb6',
+    url: 'https://teslo-shop-tbyv.onrender.com/',
+    github_url: 'https://github.com/gregoarcenta/teslo-shop',
+    backend_url: 'https://arcentales.vercel.app/projects/teslo-shop-backend',
+    technologies: [Technology.ANGULAR, Technology.TAILWIND, Technology.TS],
+    featuredFunctions: [
+      'Modern UI built with Tailwind CSS',
+      'JWT authentication',
+      'Product catalog with filters and search functionality',
+      'Fully functional shopping cart',
+      'Seamless integration with the backend for order management',
+      'Responsive design for optimal experience across devices',
+    ],
+  },
 ];
 
 export const projects_es: IProject[] = [
@@ -112,6 +140,34 @@ export const projects_es: IProject[] = [
       'Integración con Stripe en modo prueba para pagos',
       'Documentación de la API generada con Swagger',
       'Base de datos PostgreSQL configurada y optimizada',
+    ],
+  },
+  {
+    id: '3',
+    name: 'Teslo Shop Frontend',
+    slug: 'teslo-shop-frontend',
+    description:
+      'Teslo Shop Frontend es una interfaz de comercio electrónico moderna y eficiente desarrollada con Angular y Tailwind CSS. Ofrece una experiencia de compra fluida con navegación de productos, un carrito de compras dinámico, autenticación segura y gestión de pedidos optimizada. La UI es completamente responsiva y está optimizada para un rendimiento superior.',
+    type: 'frontend',
+    images: [
+      'h9snoeani0xtx0vnmkkj',
+      'pscwfzhppqd2hj4xop6y',
+      'ctcipmbagl0hds9lnh7f',
+      'mv1vmmib7ouphcmfpy3c',
+      'lralgdxxpgooy4e9onpa',
+    ],
+    image_mobile: 'bih7ox2pjpq8iunmzlb6',
+    url: 'https://teslo-shop-tbyv.onrender.com/',
+    github_url: 'https://github.com/gregoarcenta/teslo-shop',
+    backend_url: 'https://arcentales.vercel.app/projects/teslo-shop-backend',
+    technologies: [Technology.ANGULAR, Technology.TAILWIND, Technology.TS],
+    featuredFunctions: [
+      'Interfaz moderna desarrollada con Tailwind CSS',
+      'Autenticación JWT',
+      'Catálogo de productos con filtros y búsqueda',
+      'Carrito de compras completamente funcional',
+      'Integración fluida con el backend para gestión de pedidos',
+      'Diseño responsivo para una experiencia óptima en todos los dispositivos',
     ],
   },
 ];
